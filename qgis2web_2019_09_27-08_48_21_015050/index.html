@@ -1,0 +1,1816 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        #map {
+            width: 1152px;
+            height: 813px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/parcela_1.js"></script>
+        <script src="data/faixas_2.js"></script>
+        <script src="data/app_3.js"></script>
+        <script src="data/ponto_4.js"></script>
+        <script src="data/rio_5.js"></script>
+        <script src="data/setas_6.js"></script>
+        <script src="data/arvores_7.js"></script>
+        <script src="data/estradas_8.js"></script>
+        <script src="data/explanadas_9.js"></script>
+        <script src="data/n_faixas_10.js"></script>
+        <script src="data/ponte_11.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-9.038190106994906,-59.58553474320848],[-9.004425838647501,-59.53765692742609]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_GoogleSatelliteHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            opacity: 1.0,
+            attribution: '',
+        });
+        layer_GoogleSatelliteHybrid_0;
+        map.addLayer(layer_GoogleSatelliteHybrid_0);
+        function pop_parcela_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_parcela_1_0() {
+            return {
+                pane: 'pane_parcela_1',
+                opacity: 1,
+                color: 'rgba(251,154,153,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,178,151,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_parcela_1');
+        map.getPane('pane_parcela_1').style.zIndex = 401;
+        map.getPane('pane_parcela_1').style['mix-blend-mode'] = 'normal';
+        var layer_parcela_1 = new L.geoJson(json_parcela_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_parcela_1',
+            layerName: 'layer_parcela_1',
+            pane: 'pane_parcela_1',
+            onEachFeature: pop_parcela_1,
+            style: style_parcela_1_0,
+        });
+        bounds_group.addLayer(layer_parcela_1);
+        map.addLayer(layer_parcela_1);
+        function pop_faixas_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nmr'] !== null ? Autolinker.link(String(feature.properties['Nmr'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_faixas_2_0() {
+            return {
+                pane: 'pane_faixas_2',
+                opacity: 1,
+                color: 'rgba(252,246,46,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_faixas_2');
+        map.getPane('pane_faixas_2').style.zIndex = 402;
+        map.getPane('pane_faixas_2').style['mix-blend-mode'] = 'normal';
+        var layer_faixas_2 = new L.geoJson(json_faixas_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_faixas_2',
+            layerName: 'layer_faixas_2',
+            pane: 'pane_faixas_2',
+            onEachFeature: pop_faixas_2,
+            style: style_faixas_2_0,
+        });
+        bounds_group.addLayer(layer_faixas_2);
+        map.addLayer(layer_faixas_2);
+        function pop_app_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_APRT'] !== null ? Autolinker.link(String(feature.properties['COD_APRT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_APRMP'] !== null ? Autolinker.link(String(feature.properties['COD_APRMP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_app_3_0() {
+            return {
+                pane: 'pane_app_3',
+                opacity: 1,
+                color: 'rgba(16,187,108,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_app_3');
+        map.getPane('pane_app_3').style.zIndex = 403;
+        map.getPane('pane_app_3').style['mix-blend-mode'] = 'normal';
+        var layer_app_3 = new L.geoJson(json_app_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_app_3',
+            layerName: 'layer_app_3',
+            pane: 'pane_app_3',
+            onEachFeature: pop_app_3,
+            style: style_app_3_0,
+        });
+        bounds_group.addLayer(layer_app_3);
+        map.addLayer(layer_app_3);
+        function pop_ponto_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Direcao'] !== null ? Autolinker.link(String(feature.properties['Direcao'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Ponto'] !== null ? Autolinker.link(String(feature.properties['Ponto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Vertice'] !== null ? Autolinker.link(String(feature.properties['Vertice'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ponto_4_0() {
+            return {
+                pane: 'pane_ponto_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ponto_4');
+        map.getPane('pane_ponto_4').style.zIndex = 404;
+        map.getPane('pane_ponto_4').style['mix-blend-mode'] = 'normal';
+        var layer_ponto_4 = new L.geoJson(json_ponto_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ponto_4',
+            layerName: 'layer_ponto_4',
+            pane: 'pane_ponto_4',
+            onEachFeature: pop_ponto_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ponto_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ponto_4);
+        map.addLayer(layer_ponto_4);
+        function pop_rio_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_APRT'] !== null ? Autolinker.link(String(feature.properties['COD_APRT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME'] !== null ? Autolinker.link(String(feature.properties['NOME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASSIFICA'] !== null ? Autolinker.link(String(feature.properties['CLASSIFICA'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_rio_5_0() {
+            return {
+                pane: 'pane_rio_5',
+                opacity: 1,
+                color: 'rgba(164,113,88,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_rio_5');
+        map.getPane('pane_rio_5').style.zIndex = 405;
+        map.getPane('pane_rio_5').style['mix-blend-mode'] = 'normal';
+        var layer_rio_5 = new L.geoJson(json_rio_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rio_5',
+            layerName: 'layer_rio_5',
+            pane: 'pane_rio_5',
+            onEachFeature: pop_rio_5,
+            style: style_rio_5_0,
+        });
+        bounds_group.addLayer(layer_rio_5);
+        map.addLayer(layer_rio_5);
+        function pop_setas_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Tipo'] !== null ? Autolinker.link(String(feature.properties['Tipo'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_setas_6_0() {
+            return {
+                pane: 'pane_setas_6',
+                opacity: 1,
+                color: 'rgba(213,180,60,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_setas_6');
+        map.getPane('pane_setas_6').style.zIndex = 406;
+        map.getPane('pane_setas_6').style['mix-blend-mode'] = 'normal';
+        var layer_setas_6 = new L.geoJson(json_setas_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_setas_6',
+            layerName: 'layer_setas_6',
+            pane: 'pane_setas_6',
+            onEachFeature: pop_setas_6,
+            style: style_setas_6_0,
+        });
+        bounds_group.addLayer(layer_setas_6);
+        map.addLayer(layer_setas_6);
+        function pop_arvores_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TALHAO'] !== null ? Autolinker.link(String(feature.properties['TALHAO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FAIXA'] !== null ? Autolinker.link(String(feature.properties['FAIXA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PLAQUETA'] !== null ? Autolinker.link(String(feature.properties['PLAQUETA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? Autolinker.link(String(feature.properties['TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COD_ESP'] !== null ? Autolinker.link(String(feature.properties['COD_ESP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ESPECIE'] !== null ? Autolinker.link(String(feature.properties['ESPECIE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CAP'] !== null ? Autolinker.link(String(feature.properties['CAP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ALTURA'] !== null ? Autolinker.link(String(feature.properties['ALTURA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASSE'] !== null ? Autolinker.link(String(feature.properties['CLASSE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DIF'] !== null ? Autolinker.link(String(feature.properties['DIF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DLEF'] !== null ? Autolinker.link(String(feature.properties['DLEF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COORD_X_E'] !== null ? Autolinker.link(String(feature.properties['COORD_X_E'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COORD_Y_N'] !== null ? Autolinker.link(String(feature.properties['COORD_Y_N'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['VOLUME'] !== null ? Autolinker.link(String(feature.properties['VOLUME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOME_CIENT'] !== null ? Autolinker.link(String(feature.properties['NOME_CIENT'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_arvores_7_0(feature) {
+            switch(String(feature.properties['ESPECIE'])) {
+                case 'ABIL':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(35,229,67,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AMAPA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,95,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AMARELINHO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,61,120,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ANGELIM':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(48,93,208,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ANGELIM SAIA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,201,80,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ATEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,90,237,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'BAJ�O':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,219,232,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'BREU MESCLA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,234,46,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CAJUEIRO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(116,213,216,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CAMBARA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,187,131,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CANELA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,201,49,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CANELAO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,177,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CAROBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(209,51,61,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CASTANHEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,35,212,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CATUABA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,119,101,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CAUCHO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(158,126,233,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CAXETA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(56,232,121,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEDRO ROSA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(49,29,232,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEGA CORRENTE':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(126,178,215,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'COPAIBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,125,24,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'COPIUBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(61,148,240,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CUMARU':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,94,220,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ENVIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,51,210,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Farinha Seca':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,51,209,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FAVEIRO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,206,107,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'GARAPEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(126,209,132,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'GARROTE':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,238,99,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'GOIAB�O':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,203,86,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'IMBAUBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,192,236,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'IMBIRUSSUL':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,91,233,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'INGAZEIRO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,23,138,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'IP�':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(132,151,238,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'JATOBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,122,48,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'JEQUITIBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,24,54,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'LOURO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,228,17,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MANDIOCAO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,196,230,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MARACATIARA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(90,221,213,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MASSARANDUBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,231,190,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MATAMATA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,120,205,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MIRINDIBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,203,19,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'MORCEGUEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(100,238,30,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'OCUBA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,228,113,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'OITISSICA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(231,56,50,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'OREINHA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,206,55,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'PAU SANGUE':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(66,211,47,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'PEQUIZEIRO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,41,116,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'PEROBA D\'AGUA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,142,100,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ROXINHO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,216,154,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SERINGUEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,105,72,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOMANEIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(193,68,212,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SUCUPIRA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(82,130,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SUMAUMA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(60,77,227,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TACHI':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,117,237,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TAMARINO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,211,171,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TAMBORIL':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(107,16,204,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TARUMA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(27,27,229,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TAU ARI':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,92,128,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TENTO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,183,108,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'TOCO':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,214,150,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'VIROLA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(46,229,202,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'XIXA':
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(146,237,49,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_arvores_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,213,93,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_arvores_7');
+        map.getPane('pane_arvores_7').style.zIndex = 407;
+        map.getPane('pane_arvores_7').style['mix-blend-mode'] = 'normal';
+        var layer_arvores_7 = new L.geoJson(json_arvores_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_arvores_7',
+            layerName: 'layer_arvores_7',
+            pane: 'pane_arvores_7',
+            onEachFeature: pop_arvores_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_arvores_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_arvores_7);
+        map.addLayer(layer_arvores_7);
+        function pop_estradas_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Tipo'] !== null ? Autolinker.link(String(feature.properties['Tipo'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_estradas_8_0() {
+            return {
+                pane: 'pane_estradas_8',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 8.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        function style_estradas_8_1() {
+            return {
+                pane: 'pane_estradas_8',
+                opacity: 1,
+                color: 'rgba(255,96,17,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'round',
+                weight: 6.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_estradas_8');
+        map.getPane('pane_estradas_8').style.zIndex = 408;
+        map.getPane('pane_estradas_8').style['mix-blend-mode'] = 'normal';
+        var layer_estradas_8 = new L.geoJson.multiStyle(json_estradas_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_estradas_8',
+            layerName: 'layer_estradas_8',
+            pane: 'pane_estradas_8',
+            onEachFeature: pop_estradas_8,
+            styles: [style_estradas_8_0,style_estradas_8_1,]
+        });
+        bounds_group.addLayer(layer_estradas_8);
+        map.addLayer(layer_estradas_8);
+        function pop_explanadas_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_explanadas_9_0() {
+            return {
+                pane: 'pane_explanadas_9',
+                opacity: 1,
+                color: 'rgba(225,13,13,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(248,9,5,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_explanadas_9');
+        map.getPane('pane_explanadas_9').style.zIndex = 409;
+        map.getPane('pane_explanadas_9').style['mix-blend-mode'] = 'normal';
+        var layer_explanadas_9 = new L.geoJson(json_explanadas_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_explanadas_9',
+            layerName: 'layer_explanadas_9',
+            pane: 'pane_explanadas_9',
+            onEachFeature: pop_explanadas_9,
+            style: style_explanadas_9_0,
+        });
+        bounds_group.addLayer(layer_explanadas_9);
+        map.addLayer(layer_explanadas_9);
+        function pop_n_faixas_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Direcao'] !== null ? Autolinker.link(String(feature.properties['Direcao'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nmr'] !== null ? Autolinker.link(String(feature.properties['Nmr'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_n_faixas_10_0() {
+            return {
+                pane: 'pane_n_faixas_10',
+                opacity: 1,
+                color: 'rgba(247,239,249,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_n_faixas_10');
+        map.getPane('pane_n_faixas_10').style.zIndex = 410;
+        map.getPane('pane_n_faixas_10').style['mix-blend-mode'] = 'normal';
+        var layer_n_faixas_10 = new L.geoJson(json_n_faixas_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_n_faixas_10',
+            layerName: 'layer_n_faixas_10',
+            pane: 'pane_n_faixas_10',
+            onEachFeature: pop_n_faixas_10,
+            style: style_n_faixas_10_0,
+        });
+        bounds_group.addLayer(layer_n_faixas_10);
+        map.addLayer(layer_n_faixas_10);
+        function pop_ponte_11(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ponte_11_0() {
+            return {
+                pane: 'pane_ponte_11',
+                opacity: 1,
+                color: 'rgba(30,28,29,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ponte_11');
+        map.getPane('pane_ponte_11').style.zIndex = 411;
+        map.getPane('pane_ponte_11').style['mix-blend-mode'] = 'normal';
+        var layer_ponte_11 = new L.geoJson(json_ponte_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ponte_11',
+            layerName: 'layer_ponte_11',
+            pane: 'pane_ponte_11',
+            onEachFeature: pop_ponte_11,
+            style: style_ponte_11_0,
+        });
+        bounds_group.addLayer(layer_ponte_11);
+        map.addLayer(layer_ponte_11);
+        map.on("zoomend", function(){
+
+                if (map.hasLayer(layer_arvores_7)) {
+                    if (map.getZoom() <= 17 && map.getZoom() >= 19) {
+                        layer_arvores_7.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_arvores_7.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+        });
+        setBounds();
+        var i = 0;
+        layer_arvores_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['ESPECIE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ESPECIE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_arvores_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+                if (map.hasLayer(layer_arvores_7)) {
+                    if (map.getZoom() <= 17 && map.getZoom() >= 19) {
+                        layer_arvores_7.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_arvores_7.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+        map.addControl(new L.Control.Search({
+            layer: layer_arvores_7,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'ESPECIE'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_arvores_7]);
+        map.on("zoomend", function(){
+            resetLabels([layer_arvores_7]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_arvores_7]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_arvores_7]);
+        });
+        </script>
+    </body>
+</html>

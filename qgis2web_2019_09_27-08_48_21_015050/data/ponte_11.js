@@ -1,0 +1,15 @@
+var json_ponte_11 = {
+"type": "FeatureCollection",
+"name": "ponte_11",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.570265559193558, -9.034971979184494 ], [ -59.569172136235743, -9.034970172851036 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.564393494612844, -9.034962223763628 ], [ -59.563070117728458, -9.03496000661306 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.555394622607409, -9.034947012459407 ], [ -59.554465017930013, -9.034945423078835 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.571375234382508, -9.025480553362531 ], [ -59.571386260037301, -9.024566102947228 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.571416134979202, -9.02208857040374 ], [ -59.571427052448584, -9.021183273717726 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.571452435542412, -9.019078647703321 ], [ -59.571463467496102, -9.018164020480542 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.571498871795107, -9.015309061270125 ], [ -59.571510651779612, -9.014405521627143 ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0.0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -59.556730461349922, -9.020496098389817 ], [ -59.555759962305196, -9.020494650795039 ] ] ] } }
+]
+}
