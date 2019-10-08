@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        #map {
+            width: 996px;
+            height: 813px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/municipio_1.js"></script>
+        <script src="data/mancha_urbana_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-13.797150872847187,-67.08850630701008],[-7.849969331009447,-59.79935901652091]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_GoogleSatelliteHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            opacity: 1.0,
+            attribution: '',
+        });
+        layer_GoogleSatelliteHybrid_0;
+        map.addLayer(layer_GoogleSatelliteHybrid_0);
+        function pop_municipio_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">cd_geocodm</th>\
+                        <td>' + (feature.properties['cd_geocodm'] !== null ? Autolinker.link(String(feature.properties['cd_geocodm'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nome</th>\
+                        <td>' + (feature.properties['nm_municip'] !== null ? Autolinker.link(String(feature.properties['nm_municip'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">populacao</th>\
+                        <td>' + (feature.properties['populacao'] !== null ? Autolinker.link(String(feature.properties['populacao'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">fator</th>\
+                        <td>' + (feature.properties['fator'] !== null ? Autolinker.link(String(feature.properties['fator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">cadastro_estimado</th>\
+                        <td>' + (feature.properties['est_cadast'] !== null ? Autolinker.link(String(feature.properties['est_cadast'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">area_urbana_km2</th>\
+                        <td>' + (feature.properties['a_urb_km'] !== null ? Autolinker.link(String(feature.properties['a_urb_km'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">via_km</th>\
+                        <td>' + (feature.properties['via_km'] !== null ? Autolinker.link(String(feature.properties['via_km'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">distancia_porto_velho</th>\
+                        <td>' + (feature.properties['dis_capita'] !== null ? Autolinker.link(String(feature.properties['dis_capita'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">horas_de_porto_velho</th>\
+                        <td>' + (feature.properties['horas_capi'] !== null ? Autolinker.link(String(feature.properties['horas_capi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">googlemaps</th>\
+                        <td>' + (feature.properties['link_googl'] !== null ? Autolinker.link(String(feature.properties['link_googl'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_municipio_1_0() {
+            return {
+                pane: 'pane_municipio_1',
+                opacity: 1,
+                color: 'rgba(237,244,9,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_municipio_1');
+        map.getPane('pane_municipio_1').style.zIndex = 401;
+        map.getPane('pane_municipio_1').style['mix-blend-mode'] = 'normal';
+        var layer_municipio_1 = new L.geoJson(json_municipio_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_municipio_1',
+            layerName: 'layer_municipio_1',
+            pane: 'pane_municipio_1',
+            onEachFeature: pop_municipio_1,
+            style: style_municipio_1_0,
+        });
+        bounds_group.addLayer(layer_municipio_1);
+        map.addLayer(layer_municipio_1);
+        function pop_mancha_urbana_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">objectid</th>\
+                        <td>' + (feature.properties['objectid'] !== null ? Autolinker.link(String(feature.properties['objectid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">geocódigo</th>\
+                        <td>' + (feature.properties['geocódigo'] !== null ? Autolinker.link(String(feature.properties['geocódigo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">municipio</th>\
+                        <td>' + (feature.properties['municipio'] !== null ? Autolinker.link(String(feature.properties['municipio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">uf</th>\
+                        <td>' + (feature.properties['uf'] !== null ? Autolinker.link(String(feature.properties['uf'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">nome</th>\
+                        <td>' + (feature.properties['nome'] !== null ? Autolinker.link(String(feature.properties['nome'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">tipo</th>\
+                        <td>' + (feature.properties['tipo'] !== null ? Autolinker.link(String(feature.properties['tipo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">fator</th>\
+                        <td>' + (feature.properties['fator'] !== null ? Autolinker.link(String(feature.properties['fator'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">area_km2</th>\
+                        <td>' + (feature.properties['area_km2'] !== null ? Autolinker.link(String(feature.properties['area_km2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">vias_km_ro</th>\
+                        <td>' + (feature.properties['vias_km_ro'] !== null ? Autolinker.link(String(feature.properties['vias_km_ro'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">distancia_</th>\
+                        <td>' + (feature.properties['distancia_'] !== null ? Autolinker.link(String(feature.properties['distancia_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">horas_de_porto_velho</th>\
+                        <td>' + (feature.properties['horas_da_c'] !== null ? Autolinker.link(String(feature.properties['horas_da_c'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">trejato_com_balsa</th>\
+                        <td>' + (feature.properties['trajeto_co'] !== null ? Autolinker.link(String(feature.properties['trajeto_co'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">google_map</th>\
+                        <td>' + (feature.properties['google_map'] !== null ? Autolinker.link(String(feature.properties['google_map'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">media_pop_</th>\
+                        <td>' + (feature.properties['media_pop_'] !== null ? Autolinker.link(String(feature.properties['media_pop_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">populacao</th>\
+                        <td>' + (feature.properties['populacao_real'] !== null ? Autolinker.link(String(feature.properties['populacao_real'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">cadastro_estimado</th>\
+                        <td>' + (feature.properties['cadastro_estimado'] !== null ? Autolinker.link(String(feature.properties['cadastro_estimado'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_mancha_urbana_2_0() {
+            return {
+                pane: 'pane_mancha_urbana_2',
+                opacity: 1,
+                color: 'rgba(231,22,47,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_mancha_urbana_2');
+        map.getPane('pane_mancha_urbana_2').style.zIndex = 402;
+        map.getPane('pane_mancha_urbana_2').style['mix-blend-mode'] = 'normal';
+        var layer_mancha_urbana_2 = new L.geoJson(json_mancha_urbana_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_mancha_urbana_2',
+            layerName: 'layer_mancha_urbana_2',
+            pane: 'pane_mancha_urbana_2',
+            onEachFeature: pop_mancha_urbana_2,
+            style: style_mancha_urbana_2_0,
+        });
+        bounds_group.addLayer(layer_mancha_urbana_2);
+        map.addLayer(layer_mancha_urbana_2);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_mancha_urbana_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'nome'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        </script>
+    </body>
+</html>
