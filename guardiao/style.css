@@ -1,0 +1,525 @@
+body,html {
+    font-family: 'calibri';
+    height: 100%;
+    margin: 0;
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+/* barra de navegação*/
+header {
+	background: #181818;
+    padding: 5px 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.caixa {
+	position:relative;
+	width: 1140px;
+    margin:0 auto;
+    padding:10 0 10 0;
+}
+
+nav{
+    list-style-type: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+  }
+
+nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+.logo {
+    padding: 3px 3px;
+    height: 50px;
+    float: left;
+    }
+
+nav a{
+	color: #f0eeee;
+	/*font-weight: bold;*/
+	font-size: 22px;
+	text-decoration: none;
+
+}
+
+nav a:hover {
+	color: rgb(255,182,0);
+	text-decoration: underline;
+}
+
+main{
+    margin-top: 70px;
+}
+
+/*banner no topo da página*/
+
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 50vh;
+
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Text styles */
+    text-align: center;
+    color: white;
+
+    /* Background styles */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(02-banner.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.logo_hero {
+    padding: 6px 6px;
+    height: 250px;
+    float: center;
+}
+
+.hero h1 {
+    /* Text styles */
+    font-size: 3em;
+    color: white;
+
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0;;
+}
+
+.hero_redes {
+    display: inline-block;
+    font-size: 20px;
+    padding: 30px;
+}
+
+.redessociais {
+    padding: 6px 6px;
+    height: 50px;
+    float: center;
+    font-size: 24px;
+}
+
+
+.titulo-principal {
+	text-align: center;
+	font-size: 4em;
+	margin: 0 0 1em;
+}
+
+/*Página O Projeto*/
+
+.oprojeto{
+	padding: 4em 0;
+	background: #FEFEFE;
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.projeto_div{
+    margin-top: 40px;
+}
+
+.projeto_lista li {
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.projeto_icone {
+    padding: 6px 6px;
+    height: 120px;
+    float: center;
+    transition: .3s;
+}
+
+.projeto-titulo {
+	font-size: 25px;
+    font-weight: bold;
+    padding: 0 0 6px 0;
+}
+
+.projeto_descricao {
+	font-size: 17px;
+
+}
+
+.video {
+	height:400px;
+    background-color: rgb(211, 206, 206);
+}
+
+.video iframe {
+    display: block;
+    height: 300;
+    width: 545;
+    margin: 0 auto;
+    padding: 45px;
+}
+
+.numeros {
+	text-align: center;
+	background: url("13-numeros.jpg");
+    padding: 25px 0 10px 0;
+    height: 120px;
+}
+
+.numeros_componente li {
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 2px 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.numeros-titulo {
+	font-size: 60px;
+    font-weight: bold;
+    padding: 0 0 6px 0;
+    color:white;
+}
+
+.numeros_descricao {
+    font-size: 20px;
+    color:rgb(255,182,0);
+
+}
+
+/*Página Nascentes*/
+
+.nascentes{
+	padding: 4em 0;
+	background: #FEFEFE;
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.nascente_lista li{
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	vertical-align: top;
+	margin: 0 1.5%;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.nascente_lista a {
+    position: relative;
+    display: inline-block;
+}
+
+.nascente-imagem {
+    width: 330px;
+}
+ 
+.nascente_lista a span {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-top: -1em;
+    margin-left: -50%;
+    width: 100%;
+    height: 4em;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+
+/*Página Particípes*/
+
+.participe{
+	padding: 4em 0;
+	background: #d1cece;
+
+}
+
+.conteudo-participes{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+
+.participe_lista li{
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Página Notícias*/
+
+.noticia{
+	padding: 4em 0;
+	background: #ffffff;
+
+}
+
+.conteudo-noticias{
+    width: 1140px;
+    margin: 0 auto;
+    border-top:1px solid rgba(146, 146, 146, 0.438);
+    padding-top: 10px;
+}
+
+.conteudo-noticias h2 {
+	font-size: 25px;
+    font-weight: bold;
+    padding: 0 0 6px 0;
+}
+
+.conteudo-noticias p {
+    font-size: 17px;
+    margin-bottom: 50px;
+}
+
+.conteudo-noticias img {
+    float: left;
+    margin: 0 15px 0 15px;
+    height: 150px;
+}
+.saibamais {
+    border: none;
+    color: rgb(255,182,0);
+    font-weight: bold;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+}
+.todos {
+    border: none;
+    color: rgb(255,182,0);
+    font-weight: bold;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+}
+
+.todos_noticia {
+    width: 1140px;
+    margin: 0 auto;
+    border-top:1px solid rgba(146, 146, 146, 0.438);
+    padding-top: 10px;
+}
+
+.todos_noticia, .saibamais:hover{
+    background: darkorange;
+    color: black;
+	transform: scale(1.2);
+
+}
+
+.container { 
+    height: 50px;
+    position: relative;
+
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/*página de contato*/
+
+.contatos{
+	padding: 4em 0;
+	background: #d1cece;
+
+}
+
+.conteudo-contato{
+    width: 1140px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.conteudo-contato form {
+    margin-left: 300px;
+    margin-right: auto;
+}
+
+.conteudo-contato form label, form legend {
+	display:block;
+	font-size: 18px;
+	margin: 0 0 10px;
+}
+
+.conteudo-contato .input-padrao {
+	display:block;
+	margin: 0 0 20px;
+	padding: 10px 25px;
+	width: 50%;
+}
+
+.conteudo-contato .checkbox {
+	margin: 20px 0;
+}
+
+.enviar{
+    border: none;
+    color: rgb(255,182,0);
+    font-weight: bold;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 30px 2px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    margin-left: 150px;
+}
+
+.enviar:hover{
+    background: darkorange;
+    color: black;
+	transform: scale(1.2);
+}
+
+/*rodapé*/
+
+footer {
+    text-align: center;
+    color: blanchedalmond;
+	background: black;
+	padding: 40px 0;
+}
+
+/*PAGINA MUNICIPIO*/
+
+/*banner no topo da página*/
+
+.hero-vera {
+    /* Sizing */
+    width: 100vw;
+    height: 25vh;
+
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Text styles */
+    text-align: center;
+    color: white;
+
+    /* Background styles */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(02-banner.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero-vera h1 {
+    /* Text styles */
+    font-size: 6em;
+    color: white;
+
+    /* Margins */
+    margin-top: 0;
+    margin-bottom: 0;;
+}
+
+.omapa{
+	padding: 4em 0;
+	background: #FEFEFE;
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.omapa_div{
+    margin-top: 40px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  .panel h2 {
+      font-size: 18px;
+      font-weight: bold;
+      padding-top: 5px;
+  }
+
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
