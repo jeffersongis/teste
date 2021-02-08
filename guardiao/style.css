@@ -85,31 +85,6 @@ nav .icon { /*icone quando o menu recolhe.*/
     padding-top: 15px;
   }
   
-  @media screen and (max-width: 800px) { /*adaptações para celular*/
-    nav a:not(:first-child) {display: none;}
-    nav a.icon {
-      float: right;
-      display: block;
-    }
-
-    }   
-  
-  @media screen and (max-width: 800px) { /*adaptações para celular*/
-    nav.responsive {position: relative;}
-    nav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    nav.responsive a { /*adaptações para celular*/
-      float: none;
-      display: block;
-      text-align: left;
-    }
-
-    }
-
-
 
 /*banner no topo da página*/
 
@@ -287,6 +262,7 @@ nav .icon { /*icone quando o menu recolhe.*/
 
 }
 
+
 .numeros-titulo {
 	font-size: 60px;
     font-weight: bold;
@@ -400,7 +376,6 @@ nav .icon { /*icone quando o menu recolhe.*/
 }
 
 .participe_lista{
-    border: 1px solid black; /*borda do elemento*/
     flex:1; /*permite que o conteúdo se adapte automaticamente*/
     display: inline-flex;
     margin:20px 50px; /*margem para desgrudar os elementos*/
@@ -542,7 +517,7 @@ nav .icon { /*icone quando o menu recolhe.*/
 }
 
 .conteudo-contato{
-    width: 1140px;
+    width: 700px;
     margin: auto;
     padding-top: 10px;
     display: flex;
@@ -551,14 +526,12 @@ nav .icon { /*icone quando o menu recolhe.*/
     /*border: red 1px solid;*/ /* para verificar a área do NAV*/
     justify-content: center; /*alinhamento horizontal do conteúdo*/
     align-items: center;/* alinhamento vertical*/
-
+    padding-left: 100px;
 }
 
 
 .conteudo-contato form {
-
     width:100%;
-
 }
 
 .conteudo-contato form label, form legend {
@@ -568,10 +541,12 @@ nav .icon { /*icone quando o menu recolhe.*/
 }
 
 .conteudo-contato .input-padrao {
-	display:block;
+	display:flex;
 	margin: 0 0 20px;
 	padding: 10px 25px;
-	width: 50%;
+    width: 70%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    align-items: center;/* alinhamento vertical*/
 }
 
 .conteudo-contato .checkbox {
@@ -587,10 +562,9 @@ nav .icon { /*icone quando o menu recolhe.*/
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 30px 2px;
+    margin: 30px 0px 30px 140px;
     cursor: pointer;
-    background-color: rgb(0, 0, 0);
-    margin-left: 150px;
+    
 }
 
 .enviar:hover{
@@ -644,6 +618,8 @@ footer {
     margin-bottom: 0;;
 }
 
+/*mapa*/
+
 .omapa{
 	padding: 4em 0;
 	background: #FEFEFE;
@@ -655,6 +631,66 @@ footer {
 .omapa_div{
     margin-top: 40px;
 }
+
+/*ajutes números*/
+
+.numeros_municipio{
+
+    margin:5px 40px; /*margem para desgrudar os elementos*/
+
+}
+
+/*tabelas*/
+
+.table_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+table, td, th{
+    border: 1px solid black;
+}
+
+table{
+    display:flex;
+    max-width: 500px; /*largura total da tabela*/
+    border-collapse: collapse;/*elimina a borda dupla das células*/
+    /*border-spacing: 50px 10px; se eu colocar o border-colapse: separate, 
+    esse efeito vai dar as distancias entre as céluas*/
+    /*empty-cells: hide; hide oculta a célula se ela for vazia, se o paramtro 
+    for show, ela mostra a célula vazia*/
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+td, th {
+    height:50px;
+    vertical-align: middle;/*só funciona com com células*/
+    text-align: center;
+    padding: 2px;
+}
+
+th {
+    background-color: rgb(11, 20, 20);
+    color: rgb(236, 235, 231);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+tr:nth-child(even){ /*even é para em ingles, com esse comando nth-child(even) você 
+                    preenche cada celular par com a cor definida. Pode ser usada em outros 
+                    elementos, comp <p> por exemplo*/
+    background-color: #ddd;
+}
+
+
+/*dados nascentes*/
 
 .accordion {
     background-color: #eee;
@@ -679,31 +715,139 @@ footer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    text-align: center;
   }
   
   .panel h2 {
       font-size: 18px;
       font-weight: bold;
-      padding-top: 5px;
+      padding: 10px;
   }
 
-  div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-  }
+  /*slide show de fotos*/
+
+  * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  background-color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+  /*responsivo*/
+
+  @media screen and (max-width: 800px) { /*adaptações para celular*/
+    nav a:not(:first-child) {display: none;}
+    nav a:first-child{float:left;}
+    nav a.icon {
+      float: right;
+      display: block;
+    }
+
+    }   
   
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
-  
-  div.gallery img {
-    width: 100%;
-    height: auto;
-  }
-  
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }
+  @media screen and (max-width: 800px) { /*adaptações para celular*/
+    nav.responsive {position: relative;}
+    nav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    nav.responsive a { /*adaptações para celular*/
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+    }
