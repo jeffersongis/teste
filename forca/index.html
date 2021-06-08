@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>CFB Cursos - Javascript</title>
+        <meta charset="utf-8">
+        <style>
+
+        #btnIniciar{
+            height: 30px;
+            width: 60px;
+            background-color: lightgreen;
+        }
+
+        .container{
+            width:300px;
+            height:500px;
+            padding: 20px;  
+        }
+
+        #imgForca{
+            width: 100%;
+            height: auto;
+        }
+        #tracos{
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        #formEntrada{
+            margin: 0 auto;
+            text-align: center;
+            display: none;
+        }
+
+        #entrada{
+            width: 40px;
+            margin: 0 auto;
+        }
+
+        </style>
+  
+    </head>
+
+
+    <body>
+        <button onclick="iniciar()" id="btnIniciar">Iniciar</button>
+        <div class="container">
+            <img  src="imgs/f7.png" id="imgForca">
+            <p id="tracos">__ __ __ __ </p>
+            <form id="formEntrada">
+                <input id="entrada" type="text" maxlength="1">
+                <input type="submit" onclick="jogar();"/>
+            </form>
+        </div>
+
+        
+
+    <script>
+
+        var palavras = ["banana","telefone","cachorro","computador", "caneta", "zorro", "celular", "refrigerante", "teclado", "abelha", "cafeteira"];
+        var forca;
+        var palavraForca;
+        var palavraForcaAst;
+        var letra;
+        var letraArray;
+        var formulario;
+        var espacos;
+        var contador;
+        var resultado;
+        var conferencia;
+        var imagemFundo;
+        var imagemFundoArray;
+        
+
+        function iniciar() {
+            
+            forca = palavras[Math.floor(Math.random() * palavras.length)];
+
+            //console.log(forca);
+
+            letraArray=forca.split("");
+
+            //console.log(letraArray);
+
+            palavraForca = document.getElementById("tracos");
+
+            palavraForcaAst="";
+
+
+            for(i=0;i<forca.length;i++){        
+
+                palavraForcaAst=palavraForcaAst+"?";
+            }
+
+            palavraForca.innerHTML=palavraForcaAst;
+
+            //console.log(tracos);
+
+            espacos=palavraForcaAst.split("");
+
+            console.log(espacos);
+            
+            document.getElementById("imgForca").src="imgs/f1.png"
+
+            //console.log(imgForca);
+
+            contador=0;
+
+            resultado="";
+
+            conferencia=palavraForcaAst;
+
+            imagemFundoArray=["imgs/f1.png","imgs/f2.png", "imgs/f3.png", "imgs/f4.png", "imgs/f5.png", "imgs/f6.png", "imgs/f7.png", "imgs/f8.png"];
+
+            document.getElementById("tracos").style.display = "block";
+            document.getElementById("formEntrada").style.display = "block";
+           
+        }
+
+        function jogar() {
+
+            event.preventDefault();
+
+            letra=document.getElementById("entrada").value.toLowerCase();
+
+            //console.log(letra);
+
+            //console.log(conferencia);
+
+            formulario=document.getElementById("formEntrada");
+
+            formulario.reset();
+
+
+            for(i=0;i<letraArray.length;i++){
+                if(letra==letraArray[i]){
+                    espacos[i]=letraArray[i]
+                }    
+            }
+
+            resultado=espacos.toString().replace(/,/g,"");
+            palavraForca.innerHTML=resultado;
+            //console.log(resultado + "aqui");
+
+            if(resultado==forca){
+                alert("Você ganhou! A palavra é " + forca);
+                document.getElementById("imgForca").src="imgs/f9.png";
+                document.getElementById("btnIniciar").style.display = "none";
+                setInterval(function(){document.location.reload(true)},2000);
+            }else if (contador<6){
+                if(conferencia==resultado){
+                    contador=contador+1;
+                    imagemFundo=imagemFundoArray[contador].toString();
+                    document.getElementById("imgForca").src=imagemFundo;
+                }
+            }else{
+                alert("Você Perdeu! A palavara é " + forca);
+                document.getElementById("imgForca").src="imgs/f8.png";
+                document.getElementById("btnIniciar").style.display = "none";
+                setInterval(function(){document.location.reload(true)},2000);
+            }
+
+            conferencia=resultado;
+        
+        }
+
+        
+    </script> 
+       
+    </body>
+</html>
