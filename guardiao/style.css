@@ -16,7 +16,7 @@ html {
   /* barra de navegação*/
 
 .menu{
-    background: #181818;; /*cor do fundo*/
+    background: #013b15;; /*cor do fundo*/
     display: flex; /* permitirá usar o align-items para alinhar o conteúdo ao 
     centro vertical*/
     align-items: end;/* alinhamento vertical com o display:flex*/
@@ -28,17 +28,19 @@ html {
     margin-bottom: 0px;
     z-index: 100;
     
+    
 }
 
 
 nav{
     display: flex;
-    justify-content: flex-end; /*colocou o menu a esquerda*/
-    background: #181818; /*cor do fundo*/
+    /*justify-content: flex-end; /*colocou o menu a esquerda*/
+    background: #013b15; /*cor do fundo*/
     flex-wrap: wrap; /*mantém os links dentro do container e 
     permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1140px;
+    width: 850px;
     /*border: red 1px solid;*/ /* para verificar a área do NAV*/
+    
     
 }
 
@@ -54,24 +56,27 @@ nav{
     color: #f0eeee;
     font-size: 22px;
     text-decoration: none;
+    
 }
 
 .logo_menu{
     
-    width: 260px; /*largura padrão de cada link*/
+    width: 360px; /*largura padrão de cada link*/
     min-width: 260px; /*largura minima de cada link*/
-    max-width: 260px; /*largura máxima de cada link*/
+    max-width: 360px; /*largura máxima de cada link*/
     height: 50px; /*altura de cada link*/
     display: flex; /* permitirá usar o align-items para alinhar o conteúdo ao 
     centro vertical*/
     align-items: center;/* alinhamento vertical com o display:flex*/
     justify-content: flex-start;/*alinhamento horizontal do conteúdo*/
     padding-right: 100px;
+    
 
 }
 
 .logo{
     width: 140px; /*tamanho do logotipo da barra de navegação*/
+    
 }
 
 .menu-item:hover{ /*efeito para quando passar o mouse em cima do link do menu*/
