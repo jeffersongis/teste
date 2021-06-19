@@ -57,6 +57,7 @@ nav{
     font-size: 22px;
     text-decoration: none;
     
+    
 }
 
 .logo_menu{
@@ -76,6 +77,7 @@ nav{
 
 .logo{
     width: 140px; /*tamanho do logotipo da barra de navegação*/
+
     
 }
 
@@ -977,6 +979,21 @@ input[type=number] {
     nav a.icon {
       float: right;
       display: block;
+    }
+    .logo_menu{
+        width:300px
+    }
+    .nav{
+        display: block;
+        flex-wrap: nowrap;
+        text-align: center;
+
+    }
+
+    .menu-item{
+        margin-left: auto;
+        margin-right: auto;
+        
     }
 
     }   
