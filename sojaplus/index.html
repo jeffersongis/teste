@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+
+<html lang="pt-br">
+<meta charset="UTF-8">
+
+<head>
+    <title>Soja Plus</title>
+    
+    <style type="text/css">
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cima{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        display: block;
+
+    }
+    .cima img{
+        margin: 0%;
+        padding: 0;
+        outline: 0;
+        line-height:0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .slideshow-container{
+
+            position: relative;
+            margin: auto;
+        }
+
+
+        .slide{/*os slides iniciam ocultos*/
+            display: none;
+        }
+
+        .imgSlide{
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        .btnAnterior, .btnProximo{
+            cursor: pointer;/*mãozinha*/
+            position: absolute;/*fica travado dentro do elemento pai*/
+            top: 50%;/*fica bem no meio verticalmente em relação ao elemento pai*/
+            width: auto;
+            padding: 15px;
+            margin-top: -22px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.4s ease;/*ease - efeito de suavização*/
+            user-select: none;/*The user-select property specifies whether the text of an element can be selected.*/
+        }
+
+        .btnAnterior{
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .btnProximo{
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .btnAnterior:hover, .btnProximo:hover, .textoSlide:hover{
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .ativo, .indicador:hover{
+            background-color: #777;
+        }
+
+        .fade{
+            animation-name: fade;
+            animation-duration: 1.3s;
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.3s;
+        }
+
+        @keyframes fade{
+            from{opacity: 0.4;}
+            to{opacity: 1;}
+        }
+
+        @-webkit-keyframes fade{
+            from{opacity: 0.4;}
+            to{opacity: 1;}
+        }
+    
+
+    </style>
+
+</head>
+
+<body>
+    <section class="cima">
+        <img src="imagem/img1.png">
+        <img src="imagem/img2.png">
+        <img src="imagem/img3.png">
+        <img src="imagem/img4.png">
+    </section>
+    <section class="slideshow-container"><!--container do slide show-->
+        <div class="slide fade">
+            <img src="imagem/img8.png" style="width: 100%;" class="imgSlide">
+        </div>
+
+        <div class="slide fade">
+            <img src="imagem/img9.png" style="width: 100%;" class="imgSlide">
+        </div>
+
+        <div class="slide fade">
+            <img src="imagem/img10.png" style="width: 100%;" class="imgSlide">
+        </div>
+
+        <a class="btnAnterior" onclick="mudarSlide(-1)">&lsaquo;</a><!--&lsaquo: simbolo da flecha esquerda-->
+        <a class="btnProximo" onclick="mudarSlide(1)">&rsaquo;</a><!--&rsaquo: simbolo da flecha direita-->
+    </section>
+    <section class="cima">
+        <img src="imagem/img5.png">
+        <img src="imagem/img6.png">
+        <img src="imagem/img7.png">
+    </section>
+
+
+    
+<script>
+    var numSlide=1;//guarda o número do slide
+
+    mostrarSlide(1);
+
+    function mudarSlide(ns) {
+        mostrarSlide(numSlide += ns);//o ns vai estar 1 ou -1, quando a seta for clicada, 1 para somar e -1 para subtrair
+    }
+
+    function slideAtual(ns) {
+        mostrarSlide(numSlide = ns);//a função vai passar o valor do slide atual
+    }
+
+    function mostrarSlide(ns) {
+        var slides=document.getElementsByClassName("slide");//array de slides
+        var indicadores=document.getElementsByClassName("indicador")//array de indicadores
+        if(ns > slides.length){//estou no ultimo slide e cliquei para direita...
+            numSlide=1;//...ele volta para o slide 1
+        }
+        if(ns < 1){//estou no primeiro slide, clico para a esquerda...
+            numSlide=slides.length;//...ele vai para o ultimo slide
+        }
+        for(var i=0;i<slides.length;i++){//for para ocultar todos os slides
+            slides[i].style.display="none"//todos ficam display none
+        }
+        slides[numSlide-1].style.display="block"//tirei 1, para ficar na posição correta do array, que começa em 0 e não em 1. Estou trocando o valor do display:none para display:block no css da classe .slide
+        indicadores[numSlide-1].className+=" ativo";//tirei 1 por causa da posição do array que começa em zero, e estou deixando a bolinha ativa no css
+    }
+</script>
+
+</body>
