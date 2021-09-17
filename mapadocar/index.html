@@ -1,0 +1,238 @@
+<html= lang= "pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mapa do CAR</title>
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <style>
+ 
+
+        </style>
+
+    </head>
+
+    <body>
+
+    <!-----MENU NAV BAR-------->
+     
+    <header class="header" id="header">
+            <nav class="navbar">
+                <a href="index.html" class="logo_menu"><img src="img/001-LOGO.png" class="logo"></a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#banner" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <p id="link1" class="nav-link" onclick="getPos('comofunciona')">Como funciona</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                    </li>
+                    <li class="nav-item">
+                        <p id="link2" class="nav-link" onclick="getPos('bases')">Bases</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                    </li>
+                    <li class="nav-item">
+                        <p id="link3" class="nav-link" onclick="getPos('exemplos')">Exemplos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                    </li>
+                    <li class="nav-item">
+                        <p id="link3" class="nav-link" onclick="getPos('informativos')">Informativos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                    </li>
+                    <li class="nav-item">
+                        <p id="link3" class="nav-link" onclick="getPos('sobre')">Sobre</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                    </li>
+                    <li class="nav-item">
+                        <a href="#faq" class="nav-link">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#suporte" class="nav-link">Suporte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tutorial" class="nav-link">Tutorial</a>
+                    </li>
+                </ul>
+                <a href="https://teste.suportetm.com.br/car/app/entrar" class="botao"><img src="img/002-ENTRAR.png" class="logo"></a>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+    
+    <!--js para navegar nas sesções da mesma página-->
+    <script>
+
+        function getPos(id) {//parametro é a seção
+            let el = document.getElementById(id);//obtém a seção
+            for (var lx=0, ly=0;
+                el != null;
+                lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+                ly = ly-96;//posicao da secao menos a altura do menu nav
+                window.scrollTo(0, ly);//vai até a altura da seção na página;
+        }
+    </script>
+
+    <!--js para o menu hamburguer-->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        }
+    </script>
+</header>
+<main class="main">
+
+    <!-----BANNER INICIAL------>
+             
+    <section class="parallax" id="banner">
+      <div>
+          
+          <h1 class="banner-titulo">Conheça o MAPADOCAR</h1>
+          <h3 class="banner-subtitulo">uma realização do Instituto Ação Verde</h3> 
+          <a href="#" id="myBtn"><img src="icons/001-play1.png" class="banner_play"></a>
+          <h4 class="assista">assita o vídeo</h4>       
+      </div>
+    </section>
+    
+    <!----VIDEO MODAL---->
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe id="VideoPlayer" width="90%" height="90%" src="https://www.youtube.com/embed/NpAEhtn3OYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+      </div>
+    
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+          document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/NpAEhtn3OYM';//insiro uma fonte do vídeo
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+          document.getElementById('VideoPlayer').src='';//retiro a fonte do vídeo, assim ele "deliga"
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+            document.getElementById('VideoPlayer').src='';//retiro a fonte do vídeo, assim ele "deliga"
+          }
+        }
+    </script>
+
+    <!-----PATROCINADORES------>
+        
+    <section id="patrocinadores" class="patrocinadores">
+        <div>
+            <p class="texto-grande">o sistema MAPADOCAR é uma iniciativa do Instituto Ação Verde em cooperação <br>com as seguintes instituições</p>
+            <a href="http://www.acaoverde.org.br/" target="_blank"><img src="img/01-acao verde.png" class="logo-pat"></a>
+            <a href="http://www.aprosoja.com.br/" target="_blank"><img src="img/003-aprosoja.png" class="logo-pat"></a>
+            <a href="https://ampa.com.br/" target="_blank"><img src="img/004-ampa.png" class="logo-pat"></a>
+            <a href="https://abiove.org.br/" target="_blank"><img src="img/005-abiove.png" class="logo-pat"></a>
+            <a href="https://imac.agr.br/site/" target="_blank"><img src="img/006-imac.png" class="logo-pat"></a>
+            <a href="https://cipem.org.br/" target="_blank" id="ancora-comofunciona"><img src="img/007-CIPEM.png" class="logo-pat"></a>
+       </div>
+    </section>
+
+    <!-----COMO FUNCIONA------>
+
+    <section id="comofunciona" class="comofun">
+        <div class="comfun-div">
+            <h2>Como Funciona</h2>
+                <div class="comfun-cont">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NpAEhtn3OYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="comfun-cont texto-corrido">
+                    <p> O sistema funciona em nuvem na internet, operado 100% através de navegador WEB, com conjunto completo de ferramentas de desenho técnico. 
+                        Oferece diversas bases geográficas e imagens de satélite como referência. A confecção do cadastro ambiental rural é feita no sistema 
+                        através de etapas sequenciais, onde o próprio sistema faz uma série de validações em cada etapa para garantir a qualidade do mapa da 
+                        propriedade rural.
+                    </p>
+                </div>
+       </div>
+    </section>
+
+    <!-----BASES GEOGRÁFICAS------>
+
+    <section id="bases" class="baseSec">
+        <div class="base-div">
+            <h2>Bases Geográficas</h2>
+                <div class="base-cont texto-corrido">
+                    <p> O sistema oferece acesso a uma extensa base de dados geográficos e imagens de diversos satélites, para serem utilizados como plano de fundo e 
+                        disponibilizadas em camadas superpostas, advindas diversas fontes e formas: Satélites, Bases Mundiais e Federais, Cartas Topográficas e RADAMBRASIL 
+                        Vegetação, Bases Estaduais, Base Geográfica 1:25.000 da FBDS, Mapa dos Biomas, Mapa Político Administrativo e Rodoviário dentre outras.
+                    </p>
+                </div>
+                <div class="base-cont">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NpAEhtn3OYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+       </div>
+    </section>
+
+    <!-----SUPORTE------>
+
+    <section id="suporte" class="suporte">
+        <div>
+            <p class="texto-grande">Tem dúvidas de como usar o sistema?<br>Estamos aqui para ajudar você</p>
+            <a href="https://www.whatsapp.com/?lang=pt_br" target="_blank" class="botao"><img src="img/008-whatsapp.png" class="logo"></a>
+            <a href="index.html" class="botao"><img src="img/009-faq.png" class="logo"></a>
+            <a href="index.html" class="botao"><img src="img/010-tutorial.png" class="logo"></a>
+       </div>
+    </section>
+
+    <section id="exemplos" class="sec1">
+      <div>
+         <h2>Exemplos</h2>
+          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+     </div>
+    </section>
+
+    <section id="informativos" class="sec2">
+        <div>
+            <h2>Informativos</h2>
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+       </div>
+    </section>
+
+    <section id="sobre" class="sec1">
+        <div>
+           <h2>Sobre</h2>
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
+            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+       </div>
+      </section>
+</main>
+
+    </body>

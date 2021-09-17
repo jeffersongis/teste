@@ -1,0 +1,567 @@
+/*---> RESET DO ESTILO PADRÃO CSS/HTML <----  */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*tamanhos e tipos de textos*/
+h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 52px;
+    line-height: 160%;
+    /* or 83px */
+}
+
+h2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 160%;
+}
+
+h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 160%;
+}
+
+h4{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.texto-grande{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 160%;
+}
+
+.texto-corrido{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 140%;
+}
+
+/* ----> FIM DO RESET <-----*/
+
+/*-----> DOCUMENTO INTEIRO <------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+body,html {               
+    height: 100%;
+    width:100%;
+    font-family: 'Open Sans', sans-serif;/*DEFINIÇÃO DE FONTE (FONTE DO GOOGLE FONTES)*/
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*-----> FIM DO DOCUMENTO INTEIRO <------*/
+
+/*------>MENU<--------------*/
+
+.header{/*container do menu*/
+    /*border-bottom: 1px solid #2c71cc;*//*apenas para verificar*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 96px;
+    z-index: 100;
+    background-color: #ECECEC;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-bottom: 1px solid #C6C6C6;/*apenas para verificar*/
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    width: 1312px;
+    padding-left: 16px;
+
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none;
+    padding-right: 8px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 140px;/*para deixar os itens do menu mais próximo do botão*/
+}
+
+.nav-item {
+    margin-left: 16px;
+}
+
+.nav-link{
+    font-size: 16px;
+    font-weight: bold;
+    color: #404040;
+    cursor: pointer;
+}
+
+.nav-link:hover{
+    color: #bbb74e;
+}
+
+.botao:hover{
+        -webkit-filter: saturate(200%);
+        filter: saturate(200%);
+}
+
+
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/*------>FIM DO MENU<--------------*/
+
+/*------>BANNER PARALLAX<---------*/
+
+.main{
+    padding:0px;
+}
+
+/*parallax*/
+.parallax{
+    
+    background-image:url('a.jpg');/*imagem usada*/
+    background-attachment: fixed;/*a imagem não rola junto com a div/section*/
+    background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
+    background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
+    background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
+    transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
+    min-height: 500px;
+    padding-top: 100px;
+    border: 1px solid #C6C6C6;/*apenas para verificar*/
+
+}
+
+/*textos*/
+.banner-titulo{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 70px;
+}
+
+.banner-subtitulo{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 14px;
+}
+
+.assista{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*botao play*/
+.banner_play{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+/*modal vídeo do youtube*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding-left: 130px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #313131;
+    float: right;
+    font-size: 56px;
+    font-weight: bold;
+    padding-right: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
+/*SECTIONS*/
+
+/*----PATROCINADORES-----*/
+
+.patrocinadores{
+    padding-top: 32px;
+	background-color: #FFFFFF;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.patrocinadores div{
+    display: flex;
+    justify-content: flex-end; /*colocou o menu a esquerda*/
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    /*border: red 1px solid;*/ /* para verificar a área do NAV*/
+    margin:0px;
+    padding:8px;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    background-color: #FFFFFF;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.patrocinadores p{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+
+}
+
+.logo-pat{
+    width: 152px;
+    height: 152px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+    margin: 16px 16px 32px 16px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+/*-----COMO FUNCIONA------*/
+
+.comofun{ /*container maior/section*/
+    background-color: #ECECEC;
+    padding: 32px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.comfun-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    background-color: #ECECEC;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.comofun h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 44px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.comfun-cont{
+    flex:1; /*permite que o conteúdo se adapte automaticamente*/
+    display:flex;
+    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
+    um ficar embaixo do outro quando a tela diminuir*/
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    padding: 10px 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.comfun-cont p{
+    color: #535353;
+}
+
+/*-----BASES GEOGRÁFICOS------*/
+
+.baseSec{ /*container maior/section*/
+    background-color: #ffffff;
+    padding: 32px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.base-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    background-color: #ffffff;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.baseSec h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 44px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.base-cont{
+    flex:1; /*permite que o conteúdo se adapte automaticamente*/
+    display:flex;
+    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
+    um ficar embaixo do outro quando a tela diminuir*/
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    padding: 10px 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.base-cont p{
+    color: #535353;
+}
+
+/*----PATROCINADORES-----*/
+
+.suporte{
+    padding-top: 32px;
+	background-color: #ECECEC;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.suporte div{
+    display: flex;
+    justify-content: flex-end; /*colocou o menu a esquerda*/
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    background-color: #ECECEC;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.suporte p{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+
+}
+
+.logo-pat{
+    width: 152px;
+    height: 152px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+    margin: 16px 16px 32px 16px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.sec1{
+    background-color: bisque;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec1 div{
+    background-color: rgb(228, 187, 138);
+    width:  1312px;
+}
+
+.sec2{
+    background-color: rgb(78, 114, 74);
+    width:100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec2 div{
+    background-color: rgb(17, 146, 49);
+    width:  1312px;
+}
+
+/*-------RESPONSIVO---------*/
+@media only screen and (max-width: 1000px) {
+
+    /*menu nav*/
+
+    .nav-menu {
+        position: fixed;
+        left: -150%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding-top: 10px;
+    }
+
+    /*texto banner*/
+
+    .banner-titulo{
+        font-size:35px;
+        padding-top: 50px;
+    }
+    
+    .banner-subtitulo{
+        font-size:20px;
+        padding-top: 12px;
+    }
+    
+    .assista{
+        font: size 12px;
+    }
+
+    /*vídeos*/
+
+    .comfun-cont iframe{
+        width: 430px;
+        height: 245px;
+    }
+
+    .base-div iframe{
+        width: 430px;
+        height: 245px;
+    }
+
+}
