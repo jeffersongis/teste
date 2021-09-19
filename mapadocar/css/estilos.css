@@ -475,6 +475,7 @@ a {
     color: #535353;
 }
 
+
 /*----SUPORTE-----*/
 
 .suporte{
@@ -575,6 +576,64 @@ a {
     transform:scale(1.5);
 }
 
+/*----INFORMATIVO-----*/
+
+.informativo{ /*container maior/section*/
+    background-color: #ECECEC;
+    padding: 32px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.info_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    background-color: #ECECEC;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.informativo h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 44px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.info_conteudo_img{
+    flex:1; /*permite que o conteúdo se adapte automaticamente*/
+    display:flex;
+    max-width: 28%;
+    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
+    um ficar embaixo do outro quando a tela diminuir*/
+    justify-content: right; /*alinhamento horizontal do conteúdo*/
+    padding: 0px;
+    /*border: 1px solid #f605e2;/*apenas para verificar*/
+}
+
+.info_conteudo_rss{
+    display:flex;
+    justify-content:left; /*alinhamento horizontal do conteúdo*/
+    padding: 0px 0px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    min-width: 800px;
+}
+
+.botao_info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    /*border: 1px solid #6c811f;/*apenas para verificar*/
+}
 
 .sec1{
     background-color: bisque;
@@ -607,6 +666,12 @@ a {
 /*-------RESPONSIVO---------*/
 @media only screen and (max-width: 1000px) {
 
+    /*botões*/
+
+    .botao_primario {
+        width: 120px;
+    }
+    
     /*menu nav*/
 
     .nav-menu {
@@ -664,12 +729,6 @@ a {
         height: 245px;
     }
 
-    /*botões*/
-
-    .botao_primario {
-        width: 120px;
-    }
-
     /*suporte*/
 
     .suporte-botoes{
@@ -682,6 +741,27 @@ a {
     .mapa_exemplo:not( :hover ){
         -webkit-transform:scale(1.0); /* or some other value */
         transform:scale(1.0);
+    }
+
+    /*informativo*/
+
+    .info_conteudo_img{
+        display:none;
+        width: 0%;
+    }
+
+    .info_conteudo_rss{
+        justify-content:center; /*alinhamento horizontal do conteúdo*/
+        width: 90%;
+        min-width: 50px;
+        padding:0px;
+        font-size: 10px;
+        margin: 0px;
+    }
+
+    .info_container{
+        width:100%;
+        padding: 20px;
     }
 
 }
