@@ -36,22 +36,22 @@
                         <p id="link3" class="nav-link" onclick="getPos('exemplos')">Exemplos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
                     </li>
                     <li class="nav-item">
-                        <p id="link3" class="nav-link" onclick="getPos('informativos')">Informativos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                        <p id="link4" class="nav-link" onclick="getPos('informativos')">Informativos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
                     </li>
                     <li class="nav-item">
-                        <p id="link3" class="nav-link" onclick="getPos('sobre')">Sobre</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
+                        <p id="link5" class="nav-link" onclick="getPos('sobre')">Sobre</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
                     </li>
                     <li class="nav-item">
-                        <a href="#faq" class="nav-link">FAQ</a>
+                        <a href="" class="nav-link">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#suporte" class="nav-link">Suporte</a>
+                        <a href="https://www.whatsapp.com/?lang=pt_br" class="nav-link">Suporte</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#tutorial" class="nav-link">Tutorial</a>
+                        <a href="" class="nav-link">Tutorial</a>
                     </li>
                 </ul>
-                <a href="https://teste.suportetm.com.br/car/app/entrar" class="botao"><img src="img/002-ENTRAR.png" class="logo"></a>
+                <a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank"><button class="botao_primario">Entrar</button></a>
 
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -151,9 +151,9 @@
             <a href="http://www.acaoverde.org.br/" target="_blank"><img src="img/01-acao verde.png" class="logo-pat"></a>
             <a href="http://www.aprosoja.com.br/" target="_blank"><img src="img/003-aprosoja.png" class="logo-pat"></a>
             <a href="https://ampa.com.br/" target="_blank"><img src="img/004-ampa.png" class="logo-pat"></a>
+            <a href="https://cipem.org.br/" target="_blank" id="ancora-comofunciona"><img src="img/007-CIPEM.png" class="logo-pat"></a>
             <a href="https://abiove.org.br/" target="_blank"><img src="img/005-abiove.png" class="logo-pat"></a>
             <a href="https://imac.agr.br/site/" target="_blank"><img src="img/006-imac.png" class="logo-pat"></a>
-            <a href="https://cipem.org.br/" target="_blank" id="ancora-comofunciona"><img src="img/007-CIPEM.png" class="logo-pat"></a>
        </div>
     </section>
 
@@ -196,33 +196,36 @@
     <!-----SUPORTE------>
 
     <section id="suporte" class="suporte">
-        <div>
+        <div class="suporte-div">
             <p class="texto-grande">Tem dúvidas de como usar o sistema?<br>Estamos aqui para ajudar você</p>
-            <a href="https://www.whatsapp.com/?lang=pt_br" target="_blank" class="botao"><img src="img/008-whatsapp.png" class="logo"></a>
-            <a href="index.html" class="botao"><img src="img/009-faq.png" class="logo"></a>
-            <a href="index.html" class="botao"><img src="img/010-tutorial.png" class="logo"></a>
+            <div class="suporte-botoes">
+                <a href="https://www.whatsapp.com/?lang=pt_br" target="_blank"><img src="img/008-whatsapp.png" class="botao_icone"></a>
+                <a href="index.html"><img src="img/009-faq.png" class="botao_icone"></a>
+                <a href="index.html"><img src="img/010-tutorial.png" class="botao_icone"></a>
+            </div>
        </div>
     </section>
 
-    <section id="exemplos" class="sec1">
-      <div>
-         <h2>Exemplos</h2>
-          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-          texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
-     </div>
-    </section>
-
-    <section id="informativos" class="sec2">
+    <!-----EXEMPLOS------>
+        
+    <section id="exemplos" class="exemplos">
         <div>
-            <h2>Informativos</h2>
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+            <h2>Exemplos</h2>
+            <p class="texto-corrido">Veja alguns exemplos de mapas de imóveis rurais produzidos com o sistema MAPADOCAR</p>
+            <a href="http://www.acaoverde.org.br/" target="_blank"><img src="img/011-fazenda.png" class="mapa_exemplo"></a>
+            <a href="http://www.aprosoja.com.br/" target="_blank"><img src="img/012-fazenda.png" class="mapa_exemplo"></a>
+            <a href="https://ampa.com.br/" target="_blank"><img src="img/013-fazenda.png" class="mapa_exemplo"></a>
+            <a href="https://cipem.org.br/" target="_blank" id="ancora-comofunciona"><img src="img/014-fazenda.png" class="mapa_exemplo"></a>
        </div>
     </section>
+
+    <section  class="sec2">
+        <div id="latest-post">
+            <h2>Informativos</h2>
+
+       </div>
+    </section>
+
 
     <section id="sobre" class="sec1">
         <div>

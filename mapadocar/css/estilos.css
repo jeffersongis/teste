@@ -44,7 +44,28 @@ table {
 	border-spacing: 0;
 }
 
-/*tamanhos e tipos de textos*/
+/* ----> FIM DO RESET <-----*/
+
+/*-----> DOCUMENTO INTEIRO <------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+body,html {               
+    height: 100%;
+    width:100%;
+    font-family: 'Open Sans', sans-serif;/*DEFINIÇÃO DE FONTE (FONTE DO GOOGLE FONTES)*/
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*-----> FIM DO DOCUMENTO INTEIRO <------*/
+
+/*---->PADRÕES DE FONTES<----*/
 h1{
     font-style: normal;
     font-weight: bold;
@@ -88,26 +109,53 @@ h4{
     line-height: 140%;
 }
 
-/* ----> FIM DO RESET <-----*/
+/*---->PADRÕES DE BOTÕES<-----*/
 
-/*-----> DOCUMENTO INTEIRO <------*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
+/*-->botão primário comum<----*/
+.botao_primario {
+    background-color: #BAD94A; /* Green */
+    border: none;
+    border-radius: 4px;
+    width: 142px;
+    height: 42px;
+    padding: 15px 32px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.16);
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    color: #404040;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
 
-body,html {               
-    height: 100%;
-    width:100%;
-    font-family: 'Open Sans', sans-serif;/*DEFINIÇÃO DE FONTE (FONTE DO GOOGLE FONTES)*/
+.botao_primario:hover{
+    -webkit-filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
 }
 
-html{
-    scroll-behavior: smooth;
+.botao_primario:active{
+    background-color:rgb(50, 92, 53);
+    color: #ffffff;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0));
 }
 
-/*-----> FIM DO DOCUMENTO INTEIRO <------*/
+/*-->botão primário com icone (imagem)<----*/
+
+.botao_icone:hover{
+    -webkit-filter: saturate(200%);
+    filter: saturate(200%);
+}
+
+.botao_icone:active{
+    -webkit-filter: brightness(60%);
+    filter: brightness(60%);
+}
+
+
 
 /*------>MENU<--------------*/
 
@@ -179,11 +227,6 @@ a {
 
 .nav-link:hover{
     color: #bbb74e;
-}
-
-.botao:hover{
-        -webkit-filter: saturate(200%);
-        filter: saturate(200%);
 }
 
 
@@ -293,8 +336,6 @@ a {
     text-decoration: none;
     cursor: pointer;
   }
-
-
 
 
 /*SECTIONS*/
@@ -434,10 +475,10 @@ a {
     color: #535353;
 }
 
-/*----PATROCINADORES-----*/
+/*----SUPORTE-----*/
 
 .suporte{
-    padding-top: 32px;
+    padding-top: 64px;
 	background-color: #ECECEC;
     display: flex;
     width: 100%;
@@ -445,14 +486,13 @@ a {
     /*border: 1px solid #cc2cbf;/*apenas para verificar*/
 }
 
-.suporte div{
+.suporte-div{
     display: flex;
-    justify-content: flex-end; /*colocou o menu a esquerda*/
     flex-wrap: wrap; /*mantém os links dentro do container e 
     permite um ficar embaixo do outro quando a tela diminuir*/
     width: 1312px;
     margin:0px;
-    padding:8px;
+    padding:8px 0px 56px 0px;
     justify-content: space-around;/*distribuição horizontal*/
     align-items: center;/*alinhamento vertical*/
     background-color: #ECECEC;
@@ -464,17 +504,77 @@ a {
     margin: auto;
     text-align: center;
     color: #666666;
+    margin-bottom: 56px;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
 
 }
 
-.logo-pat{
-    width: 152px;
-    height: 152px;
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+.suporte-botoes{
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    width: 800px;
+}
+
+/*----EXEMPLOS-----*/
+
+.exemplos{
+    padding-top: 32px;
+	background-color: #FFFFFF;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.exemplos div{
+    display: flex;
+    justify-content: flex-end; /*colocou o menu a esquerda*/
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    /*border: red 1px solid;*/ /* para verificar a área do NAV*/
+    margin:0px;
+    padding:8px;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    background-color: #FFFFFF;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.exemplos h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.exemplos p{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.mapa_exemplo{
+    width: 260px;
+    height: 313px;
     margin: 16px 16px 32px 16px;
+    transition:transform 0.25s ease;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
+
+.mapa_exemplo:hover{
+    -webkit-transform:scale(1.5); /* or some other value */
+    transform:scale(1.5);
+}
+
 
 .sec1{
     background-color: bisque;
@@ -562,6 +662,19 @@ a {
     .base-div iframe{
         width: 430px;
         height: 245px;
+    }
+
+    /*botões*/
+
+    .botao_primario {
+        width: 120px;
+    }
+
+    /*suporte*/
+
+    .suporte-botoes{
+        width: 300px;
+        height: 200px;
     }
 
 }
