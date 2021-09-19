@@ -677,4 +677,11 @@ a {
         height: 200px;
     }
 
+    /*mapa de exemplos*/
+
+    .mapa_exemplo:not( :hover ){
+        -webkit-transform:scale(1.0); /* or some other value */
+        transform:scale(1.0);
+    }
+
 }
