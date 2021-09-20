@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html= lang= "pt-br">
     <head>
         <meta charset="UTF-8">
@@ -44,13 +45,13 @@
                         <a href="" class="nav-link">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.whatsapp.com/?lang=pt_br" class="nav-link">Suporte</a>
+                        <a href="https://www.whatsapp.com/?lang=pt_br"  target="_blank" class="nav-link">Suporte</a>
                     </li>
                     <li class="nav-item">
                         <a href="" class="nav-link">Tutorial</a>
                     </li>
                 </ul>
-                <a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank"><button class="botao_primario">Entrar</button></a>
+                <a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank" class="botao_entrar"><button class="botao_primario">ENTRAR</button></a>
 
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -113,18 +114,18 @@
 
     <script>
         // Get the modal
-        var modal = document.getElementById("myModal");
+        let modal = document.getElementById("myModal");
 
         // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        let btn = document.getElementById("myBtn");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        let span = document.getElementsByClassName("close")[0];
 
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
           modal.style.display = "block";
-          document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/NpAEhtn3OYM';//insiro uma fonte do vídeo
+          document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/NpAEhtn3OYM?autoplay=1&rel=0';//insiro uma fonte do vídeo
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -218,6 +219,8 @@
        </div>
     </section>
 
+    <!-----INFORMATIVOS------>
+
     <section id="informativos" class="informativo">
         <div class="info_container">
             <h2>Informativos</h2>
@@ -263,8 +266,10 @@
                     rssfeed_item_description_tag="off"; 
                     rssfeed_no_items="0"; 
                     rssfeed_cache = "baea40410c24d9202c3e0750e64dbed4";
-                </script> 
+                </script>
+                
                 <script type="text/javascript" src="https://feed.surfing-waves.com/js/rss-feed.js"></script>
+                <!--<div style="color:#ffcc00;font-size:10px; text-align:right; width:500px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ffcc00;">Surfing Waves</a></div>-->
             </div>
             <div class="botao_info">
                 <a href="https://leiteste1.blogspot.com/" target="_blank"><button class="botao_primario">TODOS</button></a>
@@ -272,16 +277,36 @@
        </div>
     </section>
 
+    <!-----SOBRE------>
 
-    <section id="sobre" class="sec1">
-        <div>
-           <h2>Sobre</h2>
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto 
-            texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+    <section id="sobre" class="sobre">
+        <div class="sobre-div">
+            <h2>Sobre</h2>
+                <div class="sobre-cont texto-corrido">
+                    <p> O sistema MAPADOCAR é uma iniciativa do Instituto Ação Verde com patrocínio da APROSOJA, AMPA, ABIOVE, IMAC e CIPEM 
+                        para aprimorar a qualidade dos mapas de propriedades rurais para o Cadastro Ambiental Rural com o objetivo de aumentar 
+                        o nível de aprovação desses mapas no sistema SIMCAR da Secretaria Estadual de Meio Ambiente do Mato Grosso.
+                    </p>
+                </div>
+                <div class="sobre-cont">
+                    <img src="img/015-reuniao.jpg" class="sobre-img">
+                </div>
+                <div class="botao_info">
+                    <a href="#" target="_blank"><button class="botao_primario">SAIBA MAIS</button></a>
+                </div>
        </div>
-      </section>
-</main>
+    </section>
 
-    </body>
+</main>
+<footer>
+    <p class="texto-corrido-bold">Instituto Ação Verde</p>
+    <p class="texto-pequeno-2">Avenida Historiador Rubens de Mendonça, 4.193<br>
+       Centro Político Administrativo - Condomínio Casa da Indústria<br>
+       CEP 78050-000 - Cuiabá-MT<br>
+       telefone: (65) 3611-1606<br>
+       email: acaverdefinanceiro@gmail.com
+    </p>
+
+</footer>
+
+</body>

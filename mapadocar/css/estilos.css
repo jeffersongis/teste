@@ -109,6 +109,20 @@ h4{
     line-height: 140%;
 }
 
+.texto-corrido-bold{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 140%;
+}
+
+.texto-pequeno-2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+}
+
 /*---->PADRÕES DE BOTÕES<-----*/
 
 /*-->botão primário comum<----*/
@@ -118,7 +132,7 @@ h4{
     border-radius: 4px;
     width: 142px;
     height: 42px;
-    padding: 15px 32px;
+    padding: 15px 15px;
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.16);
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
     color: #404040;
@@ -183,7 +197,6 @@ h4{
 
 }
 
-
 li {
     list-style: none;
 }
@@ -229,8 +242,6 @@ a {
     color: #bbb74e;
 }
 
-
-
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -242,7 +253,6 @@ a {
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-
 
 /*------>FIM DO MENU<--------------*/
 
@@ -264,7 +274,6 @@ a {
     min-height: 500px;
     padding-top: 100px;
     border: 1px solid #C6C6C6;/*apenas para verificar*/
-
 }
 
 /*textos*/
@@ -297,42 +306,45 @@ a {
 }
 
 /*modal vídeo do youtube*/
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 1000; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /*background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
   }
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(255, 255, 255, 0.726);
     margin: auto;
-    padding-left: 130px;
-    border: 1px solid #888;
+    padding-top: 4%;
+    padding-left: 8%;
+    /*border: 1px solid #888;*/
     width: 80%;
+    height: 90%;
   }
   
   /* The Close Button */
   .close {
-    color: #313131;
+    color: #7e1616;
     float: right;
     font-size: 56px;
     font-weight: bold;
-    padding-right: 10px;
+    padding-right: 5%;
   }
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
   }
@@ -372,7 +384,6 @@ a {
     text-align: center;
     color: #666666;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
-
 }
 
 .logo-pat{
@@ -636,43 +647,80 @@ a {
     /*border: 1px solid #6c811f;/*apenas para verificar*/
 }
 
-.sec1{
-    background-color: bisque;
+/*-----SOBRE------*/
+
+.sobre{ /*container maior/section*/
+    background-color: #FFFFFF;
+    padding: 32px 0px;
+    display: flex;
     width: 100%;
-    height: 600px;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.sobre-div{
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    background-color: #FFFFFF;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
 }
 
-.sec1 div{
-    background-color: rgb(228, 187, 138);
-    width:  1312px;
+.sobre h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 44px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
-.sec2{
-    background-color: rgb(78, 114, 74);
-    width:100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sobre-cont{
+    flex:1; /*permite que o conteúdo se adapte automaticamente*/
+    display:flex;
+    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
+    um ficar embaixo do outro quando a tela diminuir*/
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    padding: 10px 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
-.sec2 div{
-    background-color: rgb(17, 146, 49);
-    width:  1312px;
+.sobre-cont p{
+    color: #535353;
+    padding-top: 30px;
+}
+
+.sobre-img{
+    height: 286px;
+    width: 440px;
+    
+}
+
+footer{
+    background-color: #292929;
+    height: 328px;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    color: #FFFFFF;
+}
+
+footer .texto-corrido-bold{
+    padding-top: 48px;
+    text-align: center;
+}
+
+footer .texto-pequeno-2{
+    padding-top: 36px;
+    text-align: center;
 }
 
 /*-------RESPONSIVO---------*/
+
 @media only screen and (max-width: 1000px) {
-
-    /*botões*/
-
-    .botao_primario {
-        width: 120px;
-    }
-    
+   
     /*menu nav*/
 
     .nav-menu {
@@ -694,6 +742,10 @@ a {
 
     .nav-item {
         margin: 2.5rem 0;
+    }
+
+    .botao_entrar {
+        width: 120px;
     }
 
     .hamburger {
@@ -718,23 +770,87 @@ a {
         font: size 12px;
     }
 
-    /*vídeos*/
+    /*modal vídeo do youtube*/
+    .modal {
+        height: 50%;
+    }
+
+    .modal-content {
+        padding-top: 1%;
+        width: 100%;
+    }
+
+    .modal-content iframe{
+        height: 75%;
+    }
+
+    /*como funciona*/
+    .comofun{ /*container maior/section*/
+
+        align-items: center;
+        margin: auto;
+        align-items: center;
+    }
+
+    .comfun-div{
+        padding: 0px;
+    }
+
+    .comfun-cont{
+        margin: auto;
+        height: 100%;
+    }
+
+    .comfun-cont p{
+        color: #535353;
+        text-align: center;
+        margin: auto;
+        padding-left: 0px;
+    }
 
     .comfun-cont iframe{
-        width: 430px;
+        width: 320px;
         height: 245px;
+        padding:0px;
     }
 
-    .base-div iframe{
-        width: 430px;
-        height: 245px;
+    /*bases geograficas*/
+    .baseSec{ /*container maior/section*/
+
+        align-items: center;
+        margin: auto;
+        align-items: center;
     }
+
+    .base-div{
+        padding: 0px;
+    }
+
+    .base-cont{
+        margin: auto;
+        height: 100%;
+    }
+
+    .base-cont p{
+        color: #535353;
+        text-align: center;
+        margin: auto;
+        padding-left: 0px;
+    }
+
+    .base-cont iframe{
+        width: 320px;
+        height: 245px;
+        padding:0px;
+    }
+
 
     /*suporte*/
 
     .suporte-botoes{
-        width: 300px;
-        height: 200px;
+        width: 100%;
+        height: 245px;
+        padding:0px
     }
 
     /*mapa de exemplos*/
@@ -765,4 +881,40 @@ a {
         padding: 20px;
     }
 
+    /*sobre*/
+
+    .sobre{ /*container maior/section*/
+
+        align-items: center;
+        margin: auto;
+    }
+
+    .sobre-div{
+        padding: 0px;
+    }
+
+    .sobre-cont{
+        margin: auto;
+        height: 100%;
+    }
+
+    .sobre-cont p{
+        color: #535353;
+        text-align: center;
+        margin: auto;
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+
+    .sobre-img{
+        width:300px;
+        height:200px;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+    .botao_entrar{
+        display: none;
+    }
 }
