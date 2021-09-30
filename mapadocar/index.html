@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
         <style>
  
-
         </style>
 
     </head>
@@ -20,71 +19,17 @@
     <!-----MENU NAV BAR-------->
      
     <header class="header" id="header">
-            <nav class="navbar">
-                <a href="index.html" class="logo_menu"><img src="img/001-LOGO.png" class="logo"></a>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#banner" class="nav-link">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <p id="link1" class="nav-link" onclick="getPos('comofunciona')">Como funciona</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
-                    </li>
-                    <li class="nav-item">
-                        <p id="link2" class="nav-link" onclick="getPos('bases')">Bases</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
-                    </li>
-                    <li class="nav-item">
-                        <p id="link3" class="nav-link" onclick="getPos('exemplos')">Exemplos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
-                    </li>
-                    <li class="nav-item">
-                        <p id="link4" class="nav-link" onclick="getPos('informativos')">Informativos</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
-                    </li>
-                    <li class="nav-item">
-                        <p id="link5" class="nav-link" onclick="getPos('sobre')">Sobre</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.whatsapp.com/?lang=pt_br"  target="_blank" class="nav-link">Suporte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Tutorial</a>
-                    </li>
-                </ul>
-                <a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank" class="botao_entrar"><button class="botao_primario">ENTRAR</button></a>
-
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
+            <nav id="navbar" class="navbar"></nav>
     
-    <!--js para navegar nas sesções da mesma página-->
-    <script>
-
-        function getPos(id) {//parametro é a seção
-            let el = document.getElementById(id);//obtém a seção
-            for (var lx=0, ly=0;
-                el != null;
-                lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
-                ly = ly-96;//posicao da secao menos a altura do menu nav
-                window.scrollTo(0, ly);//vai até a altura da seção na página;
-        }
-    </script>
+    <!--js que chama o menu-->
+    <script src="js/001-menu.js"></script>
+    
+    <!--js para navegar nas seções da mesma página-->
+    <script src="js\002-navegaMenu.js"></script>
 
     <!--js para o menu hamburguer-->
-    <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
+    <script src="js\003-menuHamburger.js"></script>
 
-        hamburger.addEventListener("click", mobileMenu);
-
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        }
-    </script>
 </header>
 <main class="main">
 
@@ -112,36 +57,7 @@
     
     </div>
 
-    <script>
-        // Get the modal
-        let modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        let btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        let span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-          modal.style.display = "block";
-          document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/x93zzogsDGM?autoplay=1&rel=0';//insiro uma fonte do vídeo
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none";
-          document.getElementById('VideoPlayer').src='';//retiro a fonte do vídeo, assim ele "deliga"
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-            document.getElementById('VideoPlayer').src='';//retiro a fonte do vídeo, assim ele "deliga"
-          }
-        }
-    </script>
+    <script src="js\004-modalBannerHome.js"></script>
 
     <!-----PATROCINADORES------>
         
@@ -209,65 +125,88 @@
     <!-----EXEMPLOS------>
         
     <section id="exemplos" class="exemplos">
-        <div>
-            <h2>Exemplos</h2>
-            <p class="texto-corrido">Veja alguns exemplos de mapas de imóveis rurais produzidos com o sistema MAPADOCAR</p>
-            <img src="img/011-fazenda.png" class="mapa_exemplo">
-            <img src="img/012-fazenda.png" class="mapa_exemplo">
-            <img src="img/013-fazenda.png" class="mapa_exemplo">
-            <img src="img/014-fazenda.png" class="mapa_exemplo">
-       </div>
+        <h2>Exemplos</h2>
+
+        <p class="texto-corrido">Veja alguns exemplos de mapas de imóveis rurais produzidos com o sistema MAPADOCAR</p>
+   
+        <div class="slideshow-container"><!--container do slide show-->
+            <div class="slide fade">
+                <div class="numeroSlide">1/3</div>
+                <img src="img/IMG01.jpeg" style="width: 100%;" class="imgSlide">
+                <div class="textoSlide">Imóvel com várias matriculas</div>
+            </div>
+
+            <div class="slide fade">
+                <div class="numeroSlide">2/3</div>
+                <img src="img/IMG02.jpeg" style="width: 100%;" class="imgSlide">
+                <div class="textoSlide">Imóvel com duas matriculas</div>
+            </div>
+
+            <div class="slide fade">
+                <div class="numeroSlide">3/3</div>
+                <img src="img/IMG03.jpeg" style="width: 100%;" class="imgSlide">
+                <div class="textoSlide">Imóvel em floresta</div>
+            </div>
+
+            <a class="btnAnterior" onclick="mudarSlide(-1)">&lsaquo;</a><!--&lsaquo: simbolo da flecha esquerda-->
+            <a class="btnProximo" onclick="mudarSlide(1)">&rsaquo;</a><!--&rsaquo: simbolo da flecha direita-->
+        </div>
+
+        <div class="indicadorDiv"><!--marcadores com link das imagens-->
+            <span class="indicador" onclick="slideAtual(1)"></span>
+            <span class="indicador" onclick="slideAtual(2)"></span>
+            <span class="indicador" onclick="slideAtual(3)"></span>
+        </div><!--obs: a quantidade de slides precisa ser a mesma de indicadores-->
+
     </section>
+
+    <script>
+        var numSlide=1;//guarda o número do slide
+
+        mostrarSlide(1);
+
+        function mudarSlide(ns) {
+            mostrarSlide(numSlide += ns);//o ns vai estar 1 ou -1, quando a seta for clicada, 1 para somar e -1 para subtrair
+        }
+
+        function slideAtual(ns) {
+            mostrarSlide(numSlide = ns);//a função vai passar o valor do slide atual
+        }
+
+        function mostrarSlide(ns) {
+            var slides=document.getElementsByClassName("slide");//array de slides
+            var indicadores=document.getElementsByClassName("indicador")//array de indicadores
+            if(ns > slides.length){//estou no ultimo slide e cliquei para direita...
+                numSlide=1;//...ele volta para o slide 1
+            }
+            if(ns < 1){//estou no primeiro slide, clico para a esquerda...
+                numSlide=slides.length;//...ele vai para o ultimo slide
+            }
+            for(var i=0;i<slides.length;i++){//for para ocultar todos os slides
+                slides[i].style.display="none"//todos ficam display none
+            }
+
+            for(var i=0;i<indicadores.length;i++){//for para tirar a classe ativo de todos os indicadores (bolinhas)
+                indicadores[i].className=indicadores[i].className.replace(" ativo","")//troca classe de nome ativo por ""(nada)
+            } 
+            slides[numSlide-1].style.display="block"//tirei 1, para ficar na posição correta do array, que começa em 0 e não em 1. Estou trocando o valor do display:none para display:block no css da classe .slide
+            indicadores[numSlide-1].className+=" ativo";//tirei 1 por causa da posição do array que começa em zero, e estou deixando a bolinha ativa no css
+        }
+
+    </script>
 
     <!-----INFORMATIVOS------>
 
     <section id="informativos" class="informativo">
         <div class="info_container">
             <h2>Informativos</h2>
-        <!-- start sw-rss-feed code -->
+        
             <div class="info_conteudo_img">
                 <img src="img/015-informativo.jpg">
             </div>
             <div class="info_conteudo_rss">
-                <script type="text/javascript"> 
-                    rssfeed_url = new Array(); 
-                    rssfeed_url[0]="https://leiteste1.blogspot.com//feeds/posts/default";  
-                    rssfeed_frame_width="90%"; 
-                    rssfeed_frame_height="320px"; 
-                    rssfeed_scroll="on"; 
-                    rssfeed_scroll_step="6"; 
-                    rssfeed_scroll_bar="off"; 
-                    rssfeed_target="_blank"; 
-                    rssfeed_font_size="18"; 
-                    rssfeed_font_face="arial"; 
-                    rssfeed_border="on"; 
-                    rssfeed_css_url=""; 
-                    rssfeed_title="off"; 
-                    rssfeed_title_name=""; 
-                    rssfeed_title_bgcolor="white"; 
-                    rssfeed_title_color="#darkgray"; 
-                    rssfeed_title_bgimage=""; 
-                    rssfeed_footer="off"; 
-                    rssfeed_footer_name="rss feed"; 
-                    rssfeed_footer_bgcolor="#fff"; 
-                    rssfeed_footer_color="#333"; 
-                    rssfeed_footer_bgimage=""; 
-                    rssfeed_item_title_length="50"; 
-                    rssfeed_item_title_color="#666"; 
-                    rssfeed_item_bgcolor="#fff"; 
-                    rssfeed_item_bgimage="on"; 
-                    rssfeed_item_border_bottom=""; 
-                    rssfeed_item_source_icon="off"; 
-                    rssfeed_item_date="off"; 
-                    rssfeed_item_description="on"; 
-                    rssfeed_item_description_length="120"; 
-                    rssfeed_item_description_color="#666"; 
-                    rssfeed_item_description_link_color="#333"; 
-                    rssfeed_item_description_tag="off"; 
-                    rssfeed_no_items="0"; 
-                    rssfeed_cache = "baea40410c24d9202c3e0750e64dbed4";
-                </script>
-                
+                <!-- start sw-rss-feed code -->
+                <script type="text/javascript" src="js\005-rssConfInfo.js"></script>
                 <script type="text/javascript" src="https://feed.surfing-waves.com/js/rss-feed.js"></script>
                 <!--<div style="color:#ffcc00;font-size:10px; text-align:right; width:500px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ffcc00;">Surfing Waves</a></div>-->
             </div>
@@ -292,21 +231,15 @@
                     <img src="img/015-reuniao.jpg" class="sobre-img">
                 </div>
                 <div class="botao_info">
-                    <a href="#"><button class="botao_primario">SAIBA MAIS</button></a>
+                    <a href="sobre.html"><button class="botao_primario">SAIBA MAIS</button></a>
                 </div>
        </div>
     </section>
 
 </main>
-<footer>
-    <p class="texto-corrido-bold">Instituto Ação Verde</p>
-    <p class="texto-pequeno-2">Avenida Historiador Rubens de Mendonça, 4.193<br>
-       Centro Político Administrativo - Condomínio Casa da Indústria<br>
-       CEP 78050-000 - Cuiabá-MT<br>
-       telefone: (65) 3611-1606<br>
-       email: acaverdefinanceiro@gmail.com
-    </p>
+<footer id="rodape"></footer>
 
-</footer>
+<!--JS QUE CHAMA O RODAPÉ-->
+<script src="js\006-rodape.js"></script>
 
 </body>

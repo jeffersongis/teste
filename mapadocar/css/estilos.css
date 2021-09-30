@@ -256,6 +256,8 @@ a {
 
 /*------>FIM DO MENU<--------------*/
 
+/*------>PÁGINA HOME<-------------*/
+
 /*------>BANNER PARALLAX<---------*/
 
 .main{
@@ -532,36 +534,12 @@ a {
 
 /*----EXEMPLOS-----*/
 
-.exemplos{
-    padding-top: 32px;
-	background-color: #FFFFFF;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.exemplos div{
-    display: flex;
-    justify-content: flex-end; /*colocou o menu a esquerda*/
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    /*border: red 1px solid;*/ /* para verificar a área do NAV*/
-    margin:0px;
-    padding:8px;
-    justify-content: space-around;/*distribuição horizontal*/
-    align-items: center;/*alinhamento vertical*/
-    background-color: #FFFFFF;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
 .exemplos h2{
     width: 100%;
     margin: auto;
     text-align: center;
     color: #666666;
-    padding-bottom: 32px;
+    padding: 32px 0px 16px 0px;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
@@ -574,17 +552,109 @@ a {
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
-.mapa_exemplo{
-    width: 260px;
-    height: 313px;
-    margin: 16px 16px 32px 16px;
-    transition:transform 0.25s ease;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+.slideshow-container{
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
 }
 
-.mapa_exemplo:hover{
-    -webkit-transform:scale(1.5); /* or some other value */
-    transform:scale(1.5);
+.slide{/*os slides iniciam ocultos*/
+    display: none;
+}
+
+.imgSlide{
+    vertical-align: middle;
+}
+
+.btnAnterior, .btnProximo{
+    cursor: pointer;/*mãozinha*/
+    position: absolute;/*fica travado dentro do elemento pai*/
+    top: 50%;/*fica bem no meio verticalmente em relação ao elemento pai*/
+    width: auto;
+    padding: 15px;
+    margin-top: -22px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(186,217,74,0.9);
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.4s ease;/*ease - efeito de suavização*/
+    user-select: none;/*The user-select property specifies whether the text of an element can be selected.*/
+}
+
+.btnAnterior{
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.btnProximo{
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.btnAnterior:hover, .btnProximo:hover{
+    -webkit-filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.textoSlide{
+    color: white;
+    background-color: #404040;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 12px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;/*100% do seu container*/
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.numeroSlide{
+    color: rgb(0, 0, 0);
+    background-color: rgba(186,217,74,0.8);
+    font-size: 12px;
+    padding: 7px 12px;
+    position: absolute;
+    top: 0px;
+    right: 50%;;
+}
+
+.indicador{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 2px;
+    background-color: rgba(186,217,74,0.4);
+    border-radius: 50%;/*deixa o elemento redondo*/
+    display: inline-block;/*deixa uma bolinha do lado da outra*/
+    transition: background-color 0.5s ease;
+    user-select: none;/*para não ficar em foco, como se fosse digitar*/
+}
+
+.indicadorDiv{
+    text-align:center;
+    margin-bottom: 32px;
+}
+
+.ativo, .indicador:hover{
+    background-color: rgb(186,217,74);
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.3s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.3s;
+}
+
+@keyframes fade{
+    from{opacity: 0.4;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes fade{
+    from{opacity: 0.4;}
+    to{opacity: 1;}
 }
 
 /*----INFORMATIVO-----*/
@@ -699,6 +769,89 @@ a {
     width: 440px;
     
 }
+/*======PÁGINA SOBRE=========*/
+
+/*parallax*/
+.parallaxSobre{
+    
+    background-image:url('sobre_banner.jpg');/*imagem usada*/
+    background-attachment: fixed;/*a imagem não rola junto com a div/section*/
+    background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
+    background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
+    background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
+    transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
+    min-height: 240px;
+    padding-top: 50px;
+    border: 1px solid #C6C6C6;/*apenas para verificar*/
+}
+
+/*textos*/
+.banner-titulo-sobre{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 70px;
+}
+
+/*conteúdo*/
+.contPagSobre{ /*container maior/section*/
+    padding: 32px 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.contPagSobre-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.contPagSobre h2{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    padding-bottom: 44px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.contPagSobre-cont{
+    flex:1; /*permite que o conteúdo se adapte automaticamente*/
+    display:flex;
+    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
+    um ficar embaixo do outro quando a tela diminuir*/
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    padding: 10px 32px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+.contPagSobre-cont p{
+    color: #535353;
+}
+
+.contPagSobre-img{
+    height: 286px;
+    width: 440px;
+}
+
+.bgCinza{
+    background-color: #ECECEC;
+}
+
+.bgBranco{
+    background-color: #ffffff;
+}
+
+
+
+/*--------RODAPÉ---------*/
 
 footer{
     background-color: #292929;
