@@ -769,7 +769,7 @@ a {
     width: 440px;
     
 }
-/*======PÁGINA SOBRE=========*/
+/*======>PÁGINA SOBRE<=========*/
 
 /*parallax*/
 .parallaxSobre{
@@ -851,7 +851,7 @@ a {
 
 
 
-/*--------RODAPÉ---------*/
+/*===========>RODAPÉ<==========*/
 
 footer{
     background-color: #292929;
@@ -881,20 +881,22 @@ footer .texto-pequeno-2{
         left: -150%;
         top: 5rem;
         flex-direction: column;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.9);
         width: 100%;
         border-radius: 10px;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.2);
+        padding-right: 25%;
     }
+
 
     .nav-menu.active {
         left: 0;
     }
 
     .nav-item {
-        margin: 2.5rem 0;
+        margin: 1.5rem 0;
     }
 
     .botao_entrar {
@@ -1034,24 +1036,24 @@ footer .texto-pequeno-2{
         padding: 20px;
     }
 
-    /*sobre*/
+    /*sobre e ====PÁGINA SOBRE=====*/
 
-    .sobre{ /*container maior/section*/
+    .sobre .contPagSobre{ /*container maior/section*/
 
         align-items: center;
         margin: auto;
     }
 
-    .sobre-div{
+    .sobre-div .contPagSobre-div{
         padding: 0px;
     }
 
-    .sobre-cont{
+    .sobre-cont .contPagSobre-cont{
         margin: auto;
         height: 100%;
     }
 
-    .sobre-cont p{
+    .sobre-cont p .contPagSobre-cont p{
         color: #535353;
         text-align: center;
         margin: auto;
@@ -1059,7 +1061,7 @@ footer .texto-pequeno-2{
         padding-top: 0px;
     }
 
-    .sobre-img{
+    .sobre-img .contPagSobre-img{
         width:300px;
         height:200px;
     }
