@@ -270,6 +270,9 @@ a {
     background-image:url('a.jpg');/*imagem usada*/
     background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
     background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
     transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
