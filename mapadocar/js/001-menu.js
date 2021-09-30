@@ -20,7 +20,7 @@ document.getElementById("navbar").innerHTML=
                         '<p id="link5" class="nav-link" onclick="getPos(\'sobre\')">Sobre</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->' +
                     '</li>' +
                     '<li class="nav-item">' +
-                        '<a href="" class="nav-link">FAQ</a>' +
+                        '<a href="faq.html" class="nav-link">FAQ</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
                         '<a href="https://www.whatsapp.com/?lang=pt_br"  target="_blank" class="nav-link">Suporte</a>' +

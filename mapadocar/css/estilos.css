@@ -274,8 +274,11 @@ a {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
+    -webkit-background-repeat: no-repeat;
     background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
+    -webkit-background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
     transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
+    -webkit-transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
     min-height: 500px;
     padding-top: 100px;
     border: 1px solid #C6C6C6;/*apenas para verificar*/
@@ -856,8 +859,67 @@ a {
 }
 
 
+/*========>FAQ<==========*/
 
-/*===========>RODAPÉ<==========*/
+/*parallax*/
+.parallaxFAQ{
+    
+    background-image:url('faq_banner.jpg');/*imagem usada*/
+    background-attachment: fixed;/*a imagem não rola junto com a div/section*/
+    background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
+    background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
+    transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
+    min-height: 240px;
+    padding-top: 50px;
+    border: 1px solid #C6C6C6;/*apenas para verificar*/
+}
+
+/*textos*/
+.banner-titulo-FAQ{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 70px;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #ccc;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 140%;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .activeAc, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 5px 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  /*===========>RODAPÉ<==========*/
 
 footer{
     background-color: #292929;
@@ -875,6 +937,7 @@ footer .texto-pequeno-2{
     padding-top: 36px;
     text-align: center;
 }
+
 
 /*-------RESPONSIVO---------*/
 
@@ -950,7 +1013,6 @@ footer .texto-pequeno-2{
 
         align-items: center;
         margin: auto;
-        align-items: center;
     }
 
     .comfun-div{
@@ -980,7 +1042,6 @@ footer .texto-pequeno-2{
 
         align-items: center;
         margin: auto;
-        align-items: center;
     }
 
     .base-div{
@@ -1052,11 +1113,15 @@ footer .texto-pequeno-2{
 
     .sobre-div .contPagSobre-div{
         padding: 0px;
+        
     }
 
     .sobre-cont .contPagSobre-cont{
         margin: auto;
         height: 100%;
+        text-align: center;
+        align-items: center;
+        padding: 20px;
     }
 
     .sobre-cont p .contPagSobre-cont p{
@@ -1064,7 +1129,6 @@ footer .texto-pequeno-2{
         text-align: center;
         margin: auto;
         padding-left: 0px;
-        padding-top: 0px;
     }
 
     .sobre-img .contPagSobre-img{
