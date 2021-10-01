@@ -256,7 +256,7 @@ a {
 
 /*------>FIM DO MENU<--------------*/
 
-/*------>PÁGINA HOME<-------------*/
+/*========>PÁGINA HOME<===========*/
 
 /*------>BANNER PARALLAX<---------*/
 
@@ -267,7 +267,7 @@ a {
 /*parallax*/
 .parallax{
     
-    background-image:url(home-banner.png);/*imagem usada*/
+    background-image:url(home-banner.jpg);/*imagem usada*/
     background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
     -o-background-size: cover;

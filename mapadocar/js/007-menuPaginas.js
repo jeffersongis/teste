@@ -17,7 +17,7 @@ document.getElementById("navbar").innerHTML=
                         '<a href="index.html#informativos" class="nav-link">Informativos</a>'+
                     '</li>' +
                     '<li class="nav-item">' +
-                        '<a href="sobre.html" class="nav-link">Sobre</a>'+
+                        '<a href="index.html#sobre" class="nav-link">Sobre</a>'+
                     '</li>' +
                     '<li class="nav-item">' +
                         '<a href="faq.html" class="nav-link">FAQ</a>' +
