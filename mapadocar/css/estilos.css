@@ -130,7 +130,7 @@ h4{
     background-color: #BAD94A; /* Green */
     border: none;
     border-radius: 4px;
-    width: 142px;
+    width: 138px;
     height: 42px;
     padding: 15px 15px;
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.16);
@@ -224,7 +224,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 140px;/*para deixar os itens do menu mais próximo do botão*/
+    margin-left: 135px;/*para deixar os itens do menu mais próximo do botão*/
 }
 
 .nav-item {
@@ -269,6 +269,7 @@ a {
     
     background-image:url(home-banner.jpg);/*imagem usada*/
     background-attachment: fixed;/*a imagem não rola junto com a div/section*/
+    -webkit-background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -731,7 +732,7 @@ a {
     display: flex;
     width: 100%;
     justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+    border: 1px solid #cc2cbf;/*apenas para verificar*/
 }
 
 .sobre-div{
@@ -743,7 +744,7 @@ a {
     margin:0px;
     padding:8px;
     background-color: #FFFFFF;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
+    border: 1px solid #e70228;/*apenas para verificar*/
 }
 
 .sobre h2{
@@ -752,7 +753,7 @@ a {
     text-align: center;
     color: #666666;
     padding-bottom: 44px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
 .sobre-cont{
@@ -762,17 +763,19 @@ a {
     um ficar embaixo do outro quando a tela diminuir*/
     justify-content: center; /*alinhamento horizontal do conteúdo*/
     padding: 10px 32px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    border: 1px solid #1bb460;/*apenas para verificar*/
 }
 
 .sobre-cont p{
     color: #535353;
     padding-top: 30px;
+    border: 1px solid #694f08;/*apenas para verificar*/
 }
 
 .sobre-img{
     height: 286px;
     width: 440px;
+    border: 1px solid #cc2c84;/*apenas para verificar*/
     
 }
 /*======>PÁGINA SOBRE<=========*/
@@ -939,7 +942,7 @@ footer .texto-pequeno-2{
 }
 
 
-/*-------RESPONSIVO---------*/
+/*------------------------RESPONSIVO-------------------------------*/
 
 @media only screen and (max-width: 1000px) {
    
@@ -1105,33 +1108,34 @@ footer .texto-pequeno-2{
 
     /*sobre e ====PÁGINA SOBRE=====*/
 
-    .sobre .contPagSobre{ /*container maior/section*/
+    .sobre, .contPagSobre{ /*container maior/section*/
 
         align-items: center;
         margin: auto;
+        text-align: center;
     }
 
-    .sobre-div .contPagSobre-div{
+    .sobre-div, .contPagSobre-div{
         padding: 0px;
+        text-align: center;
         
     }
 
-    .sobre-cont .contPagSobre-cont{
+    .sobre-cont, .contPagSobre-cont{
         margin: auto;
         height: 100%;
         text-align: center;
-        align-items: center;
-        padding: 20px;
     }
 
-    .sobre-cont p .contPagSobre-cont p{
+    .sobre-cont p, .contPagSobre-cont p{
         color: #535353;
         text-align: center;
         margin: auto;
         padding-left: 0px;
+        padding-top: 0px;
     }
 
-    .sobre-img .contPagSobre-img{
+    .sobre-img, .contPagSobre-img{
         width:300px;
         height:200px;
     }
