@@ -732,7 +732,7 @@ a {
     display: flex;
     width: 100%;
     justify-content: center; /*alinhamento horizontal do conteúdo*/
-    border: 1px solid #cc2cbf;/*apenas para verificar*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
 }
 
 .sobre-div{
@@ -744,7 +744,7 @@ a {
     margin:0px;
     padding:8px;
     background-color: #FFFFFF;
-    border: 1px solid #e70228;/*apenas para verificar*/
+    /*border: 1px solid #e70228;/*apenas para verificar*/
 }
 
 .sobre h2{
@@ -753,7 +753,7 @@ a {
     text-align: center;
     color: #666666;
     padding-bottom: 44px;
-    border: 1px solid #2c71cc;/*apenas para verificar*/
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
 }
 
 .sobre-cont{
@@ -763,19 +763,19 @@ a {
     um ficar embaixo do outro quando a tela diminuir*/
     justify-content: center; /*alinhamento horizontal do conteúdo*/
     padding: 10px 32px;
-    border: 1px solid #1bb460;/*apenas para verificar*/
+    /*border: 1px solid #1bb460;/*apenas para verificar*/
 }
 
 .sobre-cont p{
     color: #535353;
     padding-top: 30px;
-    border: 1px solid #694f08;/*apenas para verificar*/
+    /*border: 1px solid #694f08;/*apenas para verificar*/
 }
 
 .sobre-img{
     height: 286px;
     width: 440px;
-    border: 1px solid #cc2c84;/*apenas para verificar*/
+    /*border: 1px solid #cc2c84;/*apenas para verificar*/
     
 }
 /*======>PÁGINA SOBRE<=========*/
