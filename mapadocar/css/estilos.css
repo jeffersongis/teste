@@ -130,7 +130,7 @@ h4{
     background-color: #BAD94A; /* Green */
     border: none;
     border-radius: 4px;
-    width: 138px;
+    width: 142px;
     height: 42px;
     padding: 15px 15px;
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.16);
@@ -267,7 +267,7 @@ a {
 /*parallax*/
 .parallax{
     
-    background-image:url(home-banner.jpg);/*imagem usada*/
+    background-image:url(home-banner_1920_700.png);/*imagem usada*/
     background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     -webkit-background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
