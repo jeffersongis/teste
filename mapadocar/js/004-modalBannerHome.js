@@ -10,7 +10,7 @@ let span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
     modal.style.display = "block";
-    document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/x93zzogsDGM?autoplay=1&rel=0';//insiro uma fonte do vídeo
+    document.getElementById('VideoPlayer').src='https://www.youtube.com/embed/iIomZTnV3VE?autoplay=1&rel=0';//insiro uma fonte do vídeo
 }
 
 // When the user clicks on <span> (x), close the modal
