@@ -26,7 +26,7 @@ document.getElementById("navbar").innerHTML=
                         '<a href="https://www.whatsapp.com/?lang=pt_br"  target="_blank" class="nav-link">Suporte</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
-                        '<a href="" class="nav-link">Tutorial</a>' +
+                        '<a href="tutorial.html" class="nav-link">Tutorial</a>' +
                     '</li>' +
                 '</ul>' +
                 '<a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">ENTRAR</button></a>' +

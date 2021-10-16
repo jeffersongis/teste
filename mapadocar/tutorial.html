@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html= lang= "pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mapa do CAR</title>
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <style>
+ 
+        </style>
+
+    </head>
+
+    <body>
+
+    <!-----MENU NAV BAR-------->
+     
+    <header class="header" id="header">
+            <nav id="navbar" class="navbar"></nav>
+    
+    <!--js que chama o menu-->
+    <script src="js\007-menuPaginas.js"></script>
+    
+
+    <!--js para o menu hamburguer-->
+    <script src="js\003-menuHamburger.js"></script>
+
+</header>
+<main class="main">
+
+    <!-----BANNER INICIAL------>
+             
+    <section class="parallaxTutorial">
+      <div>
+          
+          <h1 class="banner-titulo-tutorial">Tutoriais</h1>
+    
+      </div>
+    </section>
+    
+
+    <!-----PERGUNTAS E RESPOSTAS------>
+
+    <section class="contPagSobre bgBranco">
+        <div class="contPagSobre-div bgBranco">
+            <div class="contPagSobre-cont texto-corrido">
+                <div class="tab">
+                    <button class="tablinks" onclick="openTutorial(event, 'parte1')" id="defaultOpen">Tutorial 01</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte2')">Tutorial 02</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte3')">Tutorial 03</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte4')">Tutorial 04</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte5')">Tutorial 05</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte6')">Tutorial 06</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte7')">Tutorial 07</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte8')">Tutorial 08</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte9')">Tutorial 09</button>
+                    <button class="tablinks" onclick="openTutorial(event, 'parte9')">Tutorial 10</button>
+                  </div>
+                  
+                  <div id="parte1" class="tabcontent">
+                    <h3>Criando sua conta</h3>
+                    <div class="videoTutorialCont">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TazECHSIpB4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <div id="parte2" class="tabcontent">
+                    <h3>Importando um mapa pronto</h3>
+                    <div class="videoTutorialCont">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uIzDaUkYAIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  
+                  <div id="parte3" class="tabcontent">
+                    <h3>Iniciando um novo mapa</h3>
+                    <div class="videoTutorialCont">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6DgvtN2CYDs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <div id="parte4" class="tabcontent">
+                    <h3>Interface do sistema</h3>
+                    <div class="videoTutorialCont">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0RS99IVwZTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <div id="parte5" class="tabcontent">
+                    <h3>Bases e imagens de referência</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+
+                  <div id="parte6" class="tabcontent">
+                    <h3>Ferramentas de desenho</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+
+                  <div id="parte7" class="tabcontent">
+                    <h3>Limites</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+
+                  <div id="parte8" class="tabcontent">
+                    <h3>Hidrografia</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+
+                  <div id="parte9" class="tabcontent">
+                    <h3>Vegetação</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+
+                  <div id="parte10" class="tabcontent">
+                    <h3>Cobertura do solo</h3>
+                    <p>Tutorial em Produção</p>
+                  </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function openTutorial(evt, videoTutorial) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(videoTutorial).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+    </script>
+
+    <!-----SUPORTE------>
+     <section id="suporte" class="suporte">
+        <div class="suporte-div">
+            <p class="texto-grande">Não encontrou sua dúvida?<br>Estamos aqui para ajudar você!</p>
+            <div class="suporte-botoes">
+                <a href="https://www.whatsapp.com/?lang=pt_br" target="_blank"><img src="img/008-whatsapp.png" class="botao_icone"></a>
+                <a href="faq.html"><img src="img/009-faq.png" class="botao_icone"></a>
+            </div>
+       </div>
+    </section>
+
+</main>
+<footer id="rodape"></footer>
+
+<!--JS QUE CHAMA O RODAPÉ-->
+<script src="js\006-rodape.js"></script>
+
+</body>
