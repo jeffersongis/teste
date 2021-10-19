@@ -48,7 +48,7 @@
         <div class="contPagSobre-div bgBranco">
             <h2>Tire suas dúvidas sobre o MAPADOCAR</h2>
             <div class="contPagSobre-cont texto-corrido">
-                <button class="accordion h4">Eu já tenho um mapa de cadastro ambiental rural, 
+                <button id="faqPadrao" class="accordion h4">Eu já tenho um mapa de cadastro ambiental rural, 
                 posso utilizá-lo no sistema MAPADOCAR?</button>
                 <div class="panel">
                   <p>Você pode utilizar seu mapa feito no sistema estadual SIMCAR ou no 
@@ -92,26 +92,8 @@
             </div>
         </div>
     </section>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var iAcc;
 
-        for (iAcc = 0; iAcc < acc.length; iAcc++) {
-        acc[iAcc].addEventListener("click", function() {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("activeAc");
-
-            /* Toggle between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-            panel.style.display = "none";
-            } else {
-            panel.style.display = "block";
-            }
-        });
-        }
-    </script>
+    <script src="js/009-menuAccordion.js"></script>
 
     <!-----SUPORTE------>
      <section id="suporte" class="suporte">

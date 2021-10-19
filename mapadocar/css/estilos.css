@@ -229,7 +229,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 135px;/*para deixar os itens do menu mais próximo do botão*/
+    margin-left: 10%;/*para deixar os itens do menu mais próximo do botão*/
 }
 
 .nav-item {
@@ -896,7 +896,7 @@ a {
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: #ccc;
+    background-color: rgb(233, 229, 229);
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -909,6 +909,8 @@ a {
     font-weight: bold;
     font-size: 20px;
     line-height: 140%;
+    margin: 10px 20px;
+    border-radius: 4px;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -918,7 +920,7 @@ a {
   
   /* Style the accordion panel. Note: hidden by default */
   .panel {
-    padding: 5px 18px;
+    padding: 20px 50px;
     background-color: white;
     display: none;
     overflow: hidden;
@@ -927,8 +929,21 @@ a {
     line-height: 140%;
   }
 
+  /*Add a symbol to each button to indicate whether the collapsible content is open or closed:*/
 
-  /*========>TUTORIAL<==========*/
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .activeAc:after {
+    content: '\2796'; /* Unicode character for "minus" sign (-) */
+  }
+
+/*========>TUTORIAL<==========*/
 
 /*parallax*/
 .parallaxTutorial{
@@ -1015,6 +1030,11 @@ a {
     height: 90%;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
   }
+
+  /*vídeos para celular*/
+  #vidTut{
+    display: none;
+}
 
 
   /*===========>RODAPÉ<==========*/
@@ -1240,6 +1260,18 @@ footer .texto-pequeno-2{
 
 @media only screen and (max-width: 700px) {
     .botao_entrar{
+        display: none;
+    }
+
+    .parallax ,.parallaxSobre, .parallaxFAQ, .parallaxTutorial {
+        background-attachment: scroll;
+      }
+    
+    #vidTut{
+        display: flex;
+    }
+
+    #faqPc{
         display: none;
     }
 }
