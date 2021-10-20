@@ -1059,6 +1059,36 @@ footer .texto-pequeno-2{
 
 /*------------------------RESPONSIVO-------------------------------*/
 
+@media only screen and (max-width: 1200px) {
+
+    .nav-menu {
+
+        margin-left: 1%;/*para deixar os itens do menu mais próximo do botão*/
+    }
+
+    .nav-link{
+        font-size: 14px;
+    }
+
+    .botao_entrar {
+        width: 90px;
+        margin-right: 3%;
+    }
+
+    .botao_resp{
+        font-size: 12px;
+        width: 90px;
+        margin: 0 3%;
+      }
+
+
+
+    /*parallax*/
+    .parallax ,.parallaxSobre, .parallaxFAQ, .parallaxTutorial {
+         background-attachment: scroll;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
    
     /*menu nav*/
@@ -1088,6 +1118,7 @@ footer .texto-pequeno-2{
 
     .botao_entrar {
         width: 120px;
+        margin-left: 40%;
     }
 
     .hamburger {
@@ -1112,6 +1143,11 @@ footer .texto-pequeno-2{
     .assista{
         font: size 12px;
     }
+
+    /*parallax*/
+    .parallax ,.parallaxSobre, .parallaxFAQ, .parallaxTutorial {
+        background-attachment: scroll;
+      }
 
     /*modal vídeo do youtube*/
     .modal {
