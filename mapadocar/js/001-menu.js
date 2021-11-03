@@ -23,7 +23,7 @@ document.getElementById("navbar").innerHTML=
                         '<a href="faq.html" class="nav-link">FAQ</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
-                        '<a href="https://www.whatsapp.com/?lang=pt_br"  target="_blank" class="nav-link">Suporte</a>' +
+                        '<a href="https://api.whatsapp.com/send/?phone=5565993323756&text=Ol%C3%A1%21+Gostaria+de+ajuda+com+o+MAPADOCAR&app_absent=0"  target="_blank" class="nav-link">Suporte</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
                         '<a href="tutorial.html" class="nav-link">Tutorial</a>' +
