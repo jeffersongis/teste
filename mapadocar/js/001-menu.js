@@ -29,7 +29,7 @@ document.getElementById("navbar").innerHTML=
                         '<a href="tutorial.html" class="nav-link">Tutorial</a>' +
                     '</li>' +
                 '</ul>' +
-                '<a href="https://teste.suportetm.com.br/car/app/entrar" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">ENTRAR</button></a>' +
+                '<a href="https://www.mapadocar.com.br/app/entrar" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">ENTRAR</button></a>' +
 
                 '<div class="hamburger">' +
                     '<span class="bar"></span>' +

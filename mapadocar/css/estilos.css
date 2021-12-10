@@ -263,6 +263,21 @@ a {
 
 /*========>PÁGINA HOME<===========*/
 
+/*------->BOTÃO FIXO WHATSAPP<------*/
+.whatsapp_float{
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    height:80px;
+    z-index: 99;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+
+.whatsapp_float:hover{
+transform: scale(1.2);
+}
+
 /*------>BANNER PARALLAX<---------*/
 
 .main{
@@ -295,7 +310,7 @@ a {
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .banner-subtitulo{
@@ -303,12 +318,24 @@ a {
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     padding-top: 14px;
+    padding-bottom: 15px;
 }
 
 .assista{
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+/*logo ação verde*/
+.logo-branco{
+    height: 90px;
+    padding-top: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
 /*botao play*/
@@ -317,6 +344,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 /*modal vídeo do youtube*/
@@ -406,6 +434,14 @@ a {
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
     margin: 16px 16px 32px 16px;
     /*border: 1px solid #2c71cc;/*apenas para verificar*/
+}
+
+#mantenedores{/*somene mantenedores*/
+    background-color: #ECECEC;
+}
+
+#mantenedores div{/*somene mantenedores*/
+    background-color: #ECECEC;
 }
 
 /*-----COMO FUNCIONA------*/
@@ -733,7 +769,7 @@ a {
 
 .sobre{ /*container maior/section*/
     background-color: #FFFFFF;
-    padding: 32px 0px;
+    padding: 32px 0px 5px 0px;
     display: flex;
     width: 100%;
     justify-content: center; /*alinhamento horizontal do conteúdo*/
@@ -783,6 +819,7 @@ a {
     /*border: 1px solid #cc2c84;/*apenas para verificar*/
     
 }
+
 /*======>PÁGINA SOBRE<=========*/
 
 /*parallax*/
