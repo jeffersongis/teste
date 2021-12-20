@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html= lang= "pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guardião das Águas</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    </head>
+
+    <body>
+      <div class="menu">
+        <nav id="myTopnav">
+            <a href="index.html" class="logo_menu"><img src="01-logo.png" class="logo"></a>
+            <a href="index.html" class="menu-item">Inicio</a>
+            <a href="#oprojeto" class="menu-item">O Projeto</a>
+            <a href="#nascentes" class="menu-item">Nascentes</a>
+            <a href="#participes" class="menu-item">Partícipes</a>
+            <a href="#noticias" class="menu-item">Notícias</a>
+            <a href="#contato" class="menu-item">Contato</a>
+            <!-- efeito para ícone quando o menu recolher/ adpatação para celular-->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+    </div>
+
+    <!-- efeito para ícone quando o menu recolher/ adpatação para celular-->
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "nav") {
+            x.className += " responsive";
+          } else {
+            x.className = "nav";
+          }
+        }
+    </script>
+        
+        <main>
+            
+            <section class="hero-vera">
+                <div class="hero-inner-vera">
+                    <h1><br>BOM JESUS DO ARAGUAIA</h1>    
+                </div>
+            </section>                       
+            
+            
+            <section class="omapa">
+
+                <h2 class="titulo-principal">web mapa</h2>
+                
+                <iframe src="https://jeffersongis.github.io/teste/nascentes/index.html#13/-12.4865/-55.3724" width="100%" height="550" style="border:none;">
+                </iframe>
+
+                <div class="numeros">
+
+                  <div class="numeros_municipio">
+                    <p class="numeros-titulo">325</p>
+                    <p class="numeros_descricao">nascente levantadas e classificadas</p>
+                  </div>    
+  
+                  <div class="numeros_municipio">
+                    <p class="numeros-titulo">328</p>
+                    <p class="numeros_descricao">hectares de APP de <br>nascentes mapeadas</p>
+                  </div>
+  
+                  <div class="numeros_municipio">
+                    <p class="numeros-titulo">96%</p>
+                    <p class="numeros_descricao">das nascentes nas áreas de <br>agricultura estão preservadas</p>
+                  </div>
+
+                </div>
+              
+              
+            </section>
+
+            <section id="container-tabela">
+              <h2>Nascentes</h2>
+              <label for="filtrar-tabela">Filtre</label>
+              <input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o código da nascente">
+              <table class="tabela-nascente-total">
+                <thead class="nome-campo-tabela">
+                  <tr>
+                    <th>Código</th>
+                    <th>Situação</th>
+                    <th>Área de Recuperação</th>
+                    <th>Qtde de Primarias</th>
+                    <th>Qtde de Secundarias</th>
+                    <th>Data</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-nascentes">
+                  <tr class="linha-tabela">
+                    <td class="info-codigo">001</td>
+                    <td class="info-situacao">Planejada</td>
+                    <td class="info-area">15.00 ha</td>
+                    <td class="info-primaria">40</td>
+                    <td class="info-secundaria">260</td>
+                    <td class="info-data">15/05/2021</td>
+                  </tr>
+                  <tr class="linha-tabela">
+                    <td class="info-codigo">002</td>
+                    <td class="info-situacao">Em execução</td>
+                    <td class="info-area">150.00 ha</td>
+                    <td class="info-primaria">200</td>
+                    <td class="info-secundaria">1600</td>
+                    <td class="info-data">04/04/2021</td>
+                  </tr>
+                  <tr class="linha-tabela">
+                    <td class="info-codigo">015</td>
+                    <td class="info-situacao">Atrasado</td>
+                    <td class="info-area">85.00 ha</td>
+                    <td class="info-primaria">50</td>
+                    <td class="info-secundaria">450</td>
+                    <td class="info-data">15/04/2021</td>
+                  </tr>
+                  <tr class="linha-tabela">
+                    <td class="info-codigo">101</td>
+                    <td class="info-situacao">Finalizado</td>
+                    <td class="info-area">200.00 ha</td>
+                    <td class="info-primaria">650</td>
+                    <td class="info-secundaria">3500</td>
+                    <td class="info-data">25/04/2021</td>
+                  </tr>
+                  <tr class="linha-tabela">
+                    <td class="info-codigo">026</td>
+                    <td class="info-situacao">Em execução</td>
+                    <td class="info-area">125.00 ha</td>
+                    <td class="info-primaria">550</td>
+                    <td class="info-secundaria">2500</td>
+                    <td class="info-data">21/03/2021</td>
+                  </tr>
+
+                </tbody>
+              </table>                                                              
+            </section>
+
+            <section class="-formulario-container">
+              <h2 id="titulo-form">Adicionar nova situação</h2>
+              <ul id="mensagens-erro">
+        
+              </ul>
+              <form id="form-adiciona">
+                <div class="grupo">
+                  <label for="codigo">Código:</label>
+                  <input id="codigo" name="codigo" type="text" placeholder="digite o código da nascente" class="campo">
+                </div>
+                <div class="grupo">
+                  <label for="situacao">Situação:</label>
+                  <input id="situacao" list="situacao_lista" name="situacao" type="text" placeholder="digite a situação" class="campo">
+                  <datalist id="situacao_lista">
+                    <option value="Planejada"></option>
+                    <option value="Em execução"></option>
+                    <option value="Atrasado"></option>
+                    <option value="Finalizado"></option>
+                  </datalist>
+                </div>
+                <div class="grupo">
+                  <label for="recuperacao">Área de Recuperação:</label>
+                  <input id="recuperacao" name="recuperacao" type="number" step="0.010" placeholder="digite a área em recuperação" class="campo">
+                </div>
+                <div class="grupo">
+                  <label for="primarias">Qtde de Primarias:</label>
+                  <input id="primarias" name="primarias" type="number" placeholder="digite a qtde. primárias" class="campo">
+                </div>
+                <div class="grupo">
+                  <label for="secundarias">Qtde de Secundárias:</label>
+                  <input id="secundarias" name="secundarias" type="number" placeholder="digite a qtde. secundarias" class="campo">
+                </div>
+                <div class="grupo">
+                  <label for="dataCadastro">Data do Cadastro:</label>
+                  <input id="dataCadastro" name="dataCadastro" type="date" placeholder="digite a data desse cadastro" class="campo">
+                </div>
+        
+                <button id="adicionar-nascente" class="botao bto-principal">Adicionar</button>
+              </form>
+            </section>
+          
+            <script src="js/formulario.js"></script>
+            <script src="js/remover-nascentes.js"></script>
+            <script src="js/filtra.js"></script>
+
+        </main>
+
+    </body>
+
+    <footer>
+        <p>Associação dos Produtores de Soja e Milho do Estado de Mato Grosso</p>
+        <p>Rua Engenheiro Edgard Prado Arze, n°1.777 - Edifício Cloves Vettorato, CPA</p>
+        <p>CEP: 78.049-932 - Telefone: (65) 3644-4215</p>
+    </footer>
+</html>
