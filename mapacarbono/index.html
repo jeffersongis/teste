@@ -41,7 +41,6 @@
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
-            map.setMaxBounds(map.getBounds());
         }
         map.createPane('pane_ESRISatelliteArcGISWorld_Imagery_0');
         map.getPane('pane_ESRISatelliteArcGISWorld_Imagery_0').style.zIndex = 400;
