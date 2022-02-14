@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Mapa de estoque de carbono em vegetação nativa</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Estoquedecarbono_1.js"></script>
+        <script src="data/LimitedoImvel_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-13.378654187440695,-57.86989173302074],[-13.275373902640688,-57.7382125536333]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            map.setMaxBounds(map.getBounds());
+        }
+        map.createPane('pane_ESRISatelliteArcGISWorld_Imagery_0');
+        map.getPane('pane_ESRISatelliteArcGISWorld_Imagery_0').style.zIndex = 400;
+        var layer_ESRISatelliteArcGISWorld_Imagery_0 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_ESRISatelliteArcGISWorld_Imagery_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_ESRISatelliteArcGISWorld_Imagery_0;
+        map.addLayer(layer_ESRISatelliteArcGISWorld_Imagery_0);
+        function pop_Estoquedecarbono_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Area__m2_</th>\
+                        <td>' + (feature.properties['Area__m2_'] !== null ? autolinker.link(feature.properties['Area__m2_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id_proprie'] !== null ? autolinker.link(feature.properties['id_proprie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sigla'] !== null ? autolinker.link(feature.properties['sigla'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tC_ha'] !== null ? autolinker.link(feature.properties['tC_ha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['area_ha'] !== null ? autolinker.link(feature.properties['area_ha'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tC_subtota'] !== null ? autolinker.link(feature.properties['tC_subtota'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['frel'] !== null ? autolinker.link(feature.properties['frel'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Estoquedecarbono_1_0(feature) {
+            switch(String(feature.properties['sigla'])) {
+                case 'FS':
+                    return {
+                pane: 'pane_Estoquedecarbono_1',
+                opacity: 1,
+                color: 'rgba(255,204,1,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Estoquedecarbono_1');
+        map.getPane('pane_Estoquedecarbono_1').style.zIndex = 401;
+        map.getPane('pane_Estoquedecarbono_1').style['mix-blend-mode'] = 'normal';
+        var layer_Estoquedecarbono_1 = new L.geoJson(json_Estoquedecarbono_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Estoquedecarbono_1',
+            layerName: 'layer_Estoquedecarbono_1',
+            pane: 'pane_Estoquedecarbono_1',
+            onEachFeature: pop_Estoquedecarbono_1,
+            style: style_Estoquedecarbono_1_0,
+        });
+        bounds_group.addLayer(layer_Estoquedecarbono_1);
+        map.addLayer(layer_Estoquedecarbono_1);
+        function pop_LimitedoImvel_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['splus_imov'] !== null ? autolinker.link(feature.properties['splus_imov'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['splus_muni'] !== null ? autolinker.link(feature.properties['splus_muni'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LimitedoImvel_2_0() {
+            return {
+                pane: 'pane_LimitedoImvel_2',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_LimitedoImvel_2');
+        map.getPane('pane_LimitedoImvel_2').style.zIndex = 402;
+        map.getPane('pane_LimitedoImvel_2').style['mix-blend-mode'] = 'normal';
+        var layer_LimitedoImvel_2 = new L.geoJson(json_LimitedoImvel_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_LimitedoImvel_2',
+            layerName: 'layer_LimitedoImvel_2',
+            pane: 'pane_LimitedoImvel_2',
+            onEachFeature: pop_LimitedoImvel_2,
+            style: style_LimitedoImvel_2_0,
+        });
+        bounds_group.addLayer(layer_LimitedoImvel_2);
+        map.addLayer(layer_LimitedoImvel_2);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h2>Mapa de estoque de carbono em vegetação nativa</h2>';
+            };
+            title.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/LimitedoImvel_2.png" /> Limite do Imóvel': layer_LimitedoImvel_2,'Estoque de carbono<br /><table><tr><td style="text-align: center;"><img src="legend/Estoquedecarbono_1_FS0.png" /></td><td>FS</td></tr></table>': layer_Estoquedecarbono_1,"ESRI Satellite (ArcGIS/World_Imagery)": layer_ESRISatelliteArcGISWorld_Imagery_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_Estoquedecarbono_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['sigla'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['sigla']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Estoquedecarbono_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_Estoquedecarbono_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Estoquedecarbono_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Estoquedecarbono_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Estoquedecarbono_1]);
+        });
+        </script>
+    </body>
+</html>
