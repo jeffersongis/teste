@@ -5,13 +5,19 @@ document.getElementById("navbar").innerHTML=
                         '<a href="index.html" class="nav-link">Início</a>'+
                     '</li>'+
                     '<li class="nav-item">'+
+                        '<a href="index.html#sobrenos" class="nav-link">Sobre Nós</a>'+
+                    '</li>'+
+                    '<li class="nav-item">'+
                         '<a href="index.html#comprovacao" class="nav-link">Quadro de comprovações</a>'+
                     '</li>'+
                     '<li class="nav-item">'+
                         '<a href="index.html#cpr" class="nav-link">CPRs Emitidas</a>'+
                     '</li>' +
-                    '<li class="nav-item">' +
-                        '<a href="index.html#faqPc" class="nav-link">Mapa Geral</a>'+
+                    '<li class="nav-item nav-itempc">' +
+                        '<a href="index.html#faqPc" class="nav-link ">Mapa Geral</a>'+
+                    '</li>' +
+                    '<li class="nav-item nav-itemcelular">' +
+                        '<a href="index.html#vidTut" class="nav-link">Mapa Geral</a>'+
                     '</li>' +
                     '<li class="nav-item">' +
                         '<a href="faq.html" class="nav-link">FAQ</a>'+

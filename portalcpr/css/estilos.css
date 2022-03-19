@@ -179,7 +179,6 @@ h4{
 /*------>MENU<--------------*/
 
 .header{/*container do menu*/
-    /*border-bottom: 1px solid #2c71cc;*//*apenas para verificar*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,7 +188,8 @@ h4{
     z-index: 100;
     background-color: #ECECEC;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-bottom: 1px solid #C6C6C6;/*apenas para verificar*/
+    /*border-bottom: 1px solid #C6C6C6;/*apenas para verificar*/
+    
 
 }
 
@@ -234,6 +234,10 @@ a {
 
 .nav-item {
     margin-left: 16px;
+}
+
+.nav-itemcelular{
+    display: none;/*para ocultar o item do menu, que só aparece em celular e aponta para uma div exclusiva de celular*/
 }
 
 .nav-link{
@@ -300,9 +304,9 @@ transform: scale(1.2);
     -webkit-background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
     transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
     -webkit-transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
-    min-height: 1020px;
+    min-height: 1060px;
     padding-top: 100px;
-    border: 1px solid #C6C6C6;/*apenas para verificar*/
+    /*border: 1px solid #C6C6C6;/*apenas para verificar*/
 }
 
 /*
@@ -385,7 +389,7 @@ margin:0 15% 0 15%;
   }
   
   /* The Close Button */
-  .close {
+.close {
     color: #7e1616;
     float: right;
     font-size: 56px;
@@ -393,17 +397,17 @@ margin:0 15% 0 15%;
     padding-right: 5%;
   }
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
   }
 
 
-/*SECTIONS*/
+/*SECTIONS DA INDEX + PÁGINAS ALÉM DA INDEX*/
 
-/*----COMPROVAÇÕES-----*/
+/*----COMPROVAÇÕES + SOBRE NÓS + QUADRO DE COMPROVAÇÕES + CPRS EMITIDAS + MAPA GERAL-----*/
 
 .comprovacoes{
     padding-top: 32px;
@@ -421,10 +425,20 @@ margin:0 15% 0 15%;
 
 .comprovatitulo{
     width: 100%;
-    margin: auto;
+    margin: 5px auto auto auto;
     text-align: center;
     padding: 30px 0px 10px 0px;
     color: #666666;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.comprovasubtitulo{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 0px 0px 15px 0px;
+    color: #708C46;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
 }
 
 .comprovatexto{
@@ -443,7 +457,6 @@ margin:0 15% 0 15%;
     /*border: 1px solid #e70228;/*apenas para verificar*/
 }
 
-
 .comprovacontainer{
     display: flex;
     flex-direction: column;
@@ -458,14 +471,6 @@ margin:0 15% 0 15%;
     align-items: center;/*alinhamento vertical*/
     background-color: #ffffff;
     /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.comprovasubtitulo{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    padding: 0px 0px 15px 0px;
-    color: #708C46;
 }
 
 .comprovadadosmobile{
@@ -486,460 +491,6 @@ margin:0 15% 0 15%;
     height: 100%;
 }
 
-/*----PATROCINADORES-----*/
-
-.patrocinadores{
-    padding-top: 32px;
-	background-color: #FFFFFF;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.patrocinadores div{
-    display: flex;
-    justify-content: flex-end; /*colocou o menu a esquerda*/
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    /*border: red 1px solid;*/ /* para verificar a área do NAV*/
-    margin:0px;
-    padding:8px;
-    justify-content: space-around;/*distribuição horizontal*/
-    align-items: center;/*alinhamento vertical*/
-    background-color: #FFFFFF;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.patrocinadores p{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.logo-pat{
-    width: 152px;
-    height: 152px;
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
-    margin: 16px 16px 32px 16px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-#mantenedores{/*somene mantenedores*/
-    background-color: #ECECEC;
-}
-
-#mantenedores div{/*somene mantenedores*/
-    background-color: #ECECEC;
-}
-
-/*-----COMO FUNCIONA------*/
-
-.comofun{ /*container maior/section*/
-    background-color: #ECECEC;
-    padding: 32px 0px;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.comfun-div{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    margin:0px;
-    padding:8px;
-    background-color: #ECECEC;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.comofun h2{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding-bottom: 44px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.comfun-cont{
-    flex:1; /*permite que o conteúdo se adapte automaticamente*/
-    display:flex;
-    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
-    um ficar embaixo do outro quando a tela diminuir*/
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    padding: 10px 32px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.comfun-cont p{
-    color: #535353;
-}
-
-/*-----BASES GEOGRÁFICOS------*/
-
-.baseSec{ /*container maior/section*/
-    background-color: #ffffff;
-    padding: 32px 0px;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.base-div{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    margin:0px;
-    padding:8px;
-    background-color: #ffffff;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.baseSec h2{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding-bottom: 44px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.base-cont{
-    flex:1; /*permite que o conteúdo se adapte automaticamente*/
-    display:flex;
-    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
-    um ficar embaixo do outro quando a tela diminuir*/
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    padding: 10px 32px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.base-cont p{
-    color: #535353;
-}
-
-
-/*----SUPORTE-----*/
-
-.suporte{
-    padding-top: 64px;
-	background-color: #ECECEC;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.suporte-div{
-    display: flex;
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    margin:0px;
-    padding:8px 0px 56px 0px;
-    justify-content: space-around;/*distribuição horizontal*/
-    align-items: center;/*alinhamento vertical*/
-    background-color: #ECECEC;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.suporte p{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    margin-bottom: 56px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-
-}
-
-.suporte-botoes{
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;/*distribuição horizontal*/
-    align-items: center;/*alinhamento vertical*/
-    width: 800px;
-}
-
-/*----EXEMPLOS-----*/
-
-.exemplos h2{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding: 32px 0px 16px 0px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.exemplos p{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding-bottom: 32px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.slideshow-container{
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-}
-
-.slide{/*os slides iniciam ocultos*/
-    display: none;
-}
-
-.imgSlide{
-    vertical-align: middle;
-}
-
-.btnAnterior, .btnProximo{
-    cursor: pointer;/*mãozinha*/
-    position: absolute;/*fica travado dentro do elemento pai*/
-    top: 50%;/*fica bem no meio verticalmente em relação ao elemento pai*/
-    width: auto;
-    padding: 15px;
-    margin-top: -22px;
-    color: rgb(0, 0, 0);
-    background-color: rgba(186,217,74,0.9);
-    font-weight: bold;
-    font-size: 30px;
-    transition: 0.4s ease;/*ease - efeito de suavização*/
-    user-select: none;/*The user-select property specifies whether the text of an element can be selected.*/
-}
-
-.btnAnterior{
-    left: 0;
-    border-radius: 0 5px 5px 0;
-}
-
-.btnProximo{
-    right: 0;
-    border-radius: 5px 0 0 5px;
-}
-
-.btnAnterior:hover, .btnProximo:hover{
-    -webkit-filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
-    filter: saturate(200%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
-}
-
-.textoSlide{
-    color: white;
-    background-color: #404040;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px 12px;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;/*100% do seu container*/
-    text-align: center;
-    transition: 0.4s ease;
-}
-
-.numeroSlide{
-    color: rgb(0, 0, 0);
-    background-color: rgba(186,217,74,0.8);
-    font-size: 12px;
-    padding: 7px 12px;
-    position: absolute;
-    top: 0px;
-    right: 50%;;
-}
-
-.indicador{
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 2px;
-    background-color: rgba(186,217,74,0.4);
-    border-radius: 50%;/*deixa o elemento redondo*/
-    display: inline-block;/*deixa uma bolinha do lado da outra*/
-    transition: background-color 0.5s ease;
-    user-select: none;/*para não ficar em foco, como se fosse digitar*/
-}
-
-.indicadorDiv{
-    text-align:center;
-    margin-bottom: 32px;
-}
-
-.ativo, .indicador:hover{
-    background-color: rgb(186,217,74);
-}
-
-.fade{
-    animation-name: fade;
-    animation-duration: 1.3s;
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.3s;
-}
-
-@keyframes fade{
-    from{opacity: 0.4;}
-    to{opacity: 1;}
-}
-
-@-webkit-keyframes fade{
-    from{opacity: 0.4;}
-    to{opacity: 1;}
-}
-
-/*----INFORMATIVO-----*/
-
-.informativo{ /*container maior/section*/
-    background-color: #ECECEC;
-    padding: 32px 0px;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.info_container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    margin:0px;
-    padding:8px;
-    background-color: #ECECEC;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.informativo h2{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding-bottom: 44px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.info_conteudo_img{
-    flex:1; /*permite que o conteúdo se adapte automaticamente*/
-    display:flex;
-    max-width: 28%;
-    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
-    um ficar embaixo do outro quando a tela diminuir*/
-    justify-content: right; /*alinhamento horizontal do conteúdo*/
-    padding: 0px;
-    /*border: 1px solid #f605e2;/*apenas para verificar*/
-}
-
-.info_conteudo_rss{
-    display:flex;
-    justify-content:left; /*alinhamento horizontal do conteúdo*/
-    padding: 0px 0px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-    min-width: 800px;
-}
-
-.botao_info{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-    padding-top: 40px;
-    /*border: 1px solid #6c811f;/*apenas para verificar*/
-}
-
-/*-----SOBRE------*/
-
-.sobre{ /*container maior/section*/
-    background-color: #FFFFFF;
-    padding: 32px 0px 5px 0px;
-    display: flex;
-    width: 100%;
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
-}
-
-.sobre-div{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /*mantém os links dentro do container e 
-    permite um ficar embaixo do outro quando a tela diminuir*/
-    width: 1312px;
-    margin:0px;
-    padding:8px;
-    background-color: #FFFFFF;
-    /*border: 1px solid #e70228;/*apenas para verificar*/
-}
-
-.sobre h2{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    color: #666666;
-    padding-bottom: 44px;
-    /*border: 1px solid #2c71cc;/*apenas para verificar*/
-}
-
-.sobre-cont{
-    flex:1; /*permite que o conteúdo se adapte automaticamente*/
-    display:flex;
-    flex-wrap: wrap; /*mantém os itens dentro do container e permite 
-    um ficar embaixo do outro quando a tela diminuir*/
-    justify-content: center; /*alinhamento horizontal do conteúdo*/
-    padding: 10px 32px;
-    /*border: 1px solid #1bb460;/*apenas para verificar*/
-}
-
-.sobre-cont p{
-    color: #535353;
-    padding-top: 30px;
-    /*border: 1px solid #694f08;/*apenas para verificar*/
-}
-
-.sobre-img{
-    height: 286px;
-    width: 440px;
-    /*border: 1px solid #cc2c84;/*apenas para verificar*/
-    
-}
-
-/*======>PÁGINA SOBRE<=========*/
-
-/*parallax*/
-.parallaxSobre{
-    
-    background-image:url('sobre_banner.png');/*imagem usada*/
-    background-attachment: fixed;/*a imagem não rola junto com a div/section*/
-    background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-repeat: no-repeat;/*para evitar que o efeito repita a mesma imagem caso a tela do usuário seja muito grande ou a imagem muito pequena*/
-    background-position: center center;/*a imagem sempre ficará centralizada horizontalmente e verticalmente*/
-    transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
-    min-height: 240px;
-    padding-top: 50px;
-    border: 1px solid #C6C6C6;/*apenas para verificar*/
-}
-
-/*textos*/
-.banner-titulo-sobre{
-    text-align: center;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    padding-top: 70px;
-}
-
-/*conteúdo*/
 .contPagSobre{ /*container maior/section*/
     padding: 32px 0px;
     display: flex;
@@ -995,8 +546,56 @@ margin:0 15% 0 15%;
     background-color: #ffffff;
 }
 
+/*---SOMENTE SECTION SOBRE NÓS---*/
 
-/*========>FAQ<==========*/
+.sobrenos_container{
+    margin-bottom: 25%;
+}
+
+/*----SOMENTE SECTION SUPORTE-----*/
+
+.suporte{
+    padding-top: 64px;
+	background-color: #ECECEC;
+    display: flex;
+    width: 100%;
+    justify-content: center; /*alinhamento horizontal do conteúdo*/
+    /*border: 1px solid #cc2cbf;/*apenas para verificar*/
+}
+
+.suporte-div{
+    display: flex;
+    flex-wrap: wrap; /*mantém os links dentro do container e 
+    permite um ficar embaixo do outro quando a tela diminuir*/
+    width: 1312px;
+    margin:0px;
+    padding:8px 0px 56px 0px;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    background-color: #ECECEC;
+    /*border: 1px solid #e70228;/*apenas para verificar*/
+}
+
+.suporte p{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: #666666;
+    margin-bottom: 56px;
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+
+}
+
+.suporte-botoes{
+    /*border: 1px solid #2c71cc;/*apenas para verificar*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;/*distribuição horizontal*/
+    align-items: center;/*alinhamento vertical*/
+    width: 800px;
+}
+
+/*========>PÁGINA FAQ<==========*/
 
 /*parallax*/
 .parallaxFAQ{
@@ -1011,7 +610,7 @@ margin:0 15% 0 15%;
     transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
     min-height: 240px;
     padding-top: 50px;
-    border: 1px solid #C6C6C6;/*apenas para verificar*/
+    /*border: 1px solid #C6C6C6;/*apenas para verificar*/
 }
 
 
@@ -1072,7 +671,7 @@ margin:0 15% 0 15%;
     content: '\2796'; /* Unicode character for "minus" sign (-) */
   }
 
-/*========>TUTORIAL<==========*/
+/*========>PÁGINA AJUDA<==========*/
 
 /*parallax*/
 .parallaxTutorial{
@@ -1087,7 +686,7 @@ margin:0 15% 0 15%;
     transform: scale(1.05);/*faz a imagem se movimentar no sentido oposto da rolagem da página*/
     min-height: 240px;
     padding-top: 50px;
-    border: 1px solid #C6C6C6;/*apenas para verificar*/
+    /*border: 1px solid #C6C6C6;/*apenas para verificar*/
 }
 
 
@@ -1214,6 +813,9 @@ footer .texto-pequeno-2{
 
 /*------------------------RESPONSIVO-------------------------------*/
 
+
+/*-----TABLET E TELAS COM BAIXA RESOLUÇÃO------*/
+
 @media only screen and (max-width: 1200px) {
 
     .nav-menu {
@@ -1225,24 +827,13 @@ footer .texto-pequeno-2{
         font-size: 14px;
     }
 
-    .botao_entrar {
-        width: 190px;
-        margin-right: 3%;
-    }
-
-    .botao_resp{
-        font-size: 12px;
-        width: 90px;
-        margin: 0 3%;
-      }
-
-
-
     /*parallax*/
     .parallax ,.parallaxSobre, .parallaxFAQ, .parallaxTutorial {
          background-attachment: scroll;
     }
 }
+
+/*-----TABLET--------------*/
 
 @media only screen and (max-width: 1000px) {
    
@@ -1269,11 +860,6 @@ footer .texto-pequeno-2{
 
     .nav-item {
         margin: 1.5rem 0;
-    }
-
-    .botao_entrar {
-        width: 190px;
-        margin-left: 40%;
     }
 
     .hamburger {
@@ -1318,7 +904,6 @@ footer .texto-pequeno-2{
         height: 75%;
     }
 
-    /*como funciona*/
     .comofun{ /*container maior/section*/
 
         align-items: center;
@@ -1329,9 +914,16 @@ footer .texto-pequeno-2{
         padding: 0px;
     }
 
+    .botao_primario{
+        width: 100%;
+    }
+
     .comfun-cont{
+
         margin: auto;
         height: 100%;
+        margin-bottom: 60px;
+
     }
 
     .comfun-cont p{
@@ -1347,36 +939,6 @@ footer .texto-pequeno-2{
         padding:0px;
     }
 
-    /*bases geograficas*/
-    .baseSec{ /*container maior/section*/
-
-        align-items: center;
-        margin: auto;
-    }
-
-    .base-div{
-        padding: 0px;
-    }
-
-    .base-cont{
-        margin: auto;
-        height: 100%;
-    }
-
-    .base-cont p{
-        color: #535353;
-        text-align: center;
-        margin: auto;
-        padding-left: 0px;
-    }
-
-    .base-cont iframe{
-        width: 320px;
-        height: 245px;
-        padding:0px;
-    }
-
-
     /*suporte*/
 
     .suporte-botoes{
@@ -1384,97 +946,52 @@ footer .texto-pequeno-2{
         height: 245px;
         padding:0px
     }
-
-    /*mapa de exemplos*/
-
-    .mapa_exemplo:not( :hover ){
-        -webkit-transform:scale(1.0); /* or some other value */
-        transform:scale(1.0);
-    }
-
-    /*informativo*/
-
-    .info_conteudo_img{
-        display:none;
-        width: 0%;
-    }
-
-    .info_conteudo_rss{
-        justify-content:center; /*alinhamento horizontal do conteúdo*/
-        width: 90%;
-        min-width: 50px;
-        padding:0px;
-        font-size: 10px;
-        margin: 0px;
-    }
-
-    .info_container{
-        width:100%;
-        padding: 20px;
-    }
-
-    /*sobre e ====PÁGINA SOBRE=====*/
-
-    .sobre, .contPagSobre{ /*container maior/section*/
-
-        align-items: center;
-        margin: auto;
-        text-align: center;
-    }
-
-    .sobre-div, .contPagSobre-div{
-        padding: 0px;
-        text-align: center;
-        
-    }
-
-    .sobre-cont, .contPagSobre-cont{
-        margin: auto;
-        height: 100%;
-        text-align: center;
-    }
-
-    .sobre-cont p, .contPagSobre-cont p{
-        color: #535353;
-        text-align: center;
-        margin: auto;
-        padding-left: 0px;
-        padding-top: 0px;
-    }
-
-    .sobre-img, .contPagSobre-img{
-        width:300px;
-        height:200px;
-    }
-
 }
+
+   
+/*CELULAR*/
 
 @media only screen and (max-width: 850px) {
     .botao_entrar{
         display: none;
     }
-
     .parallax ,.parallaxSobre, .parallaxFAQ, .parallaxTutorial {
         background-attachment: scroll;
-      }
-    
+    }
+    .banner-titulo{
+        margin-top: 35%;
+    }
     #vidTut{
         display: flex;
     }
-
     .comprovatexto{
         text-align: center;
     }
-
     #faqPc{
         display: none;
     }
-
     .comprovadadospc{
         display: none;
     }
-    
     .comprovadadosmobile{
         display:flex;
+    }
+    .comprovacoes{
+        height: 100%;
+    }
+    .comfun-cont{
+        height: 450px;
+    }
+    .comfun-cont iframe{
+        height: 400px;
+    }
+    .sobrenos_container{
+        margin-bottom: 0;
+    }
+    .nav-itempc{
+        display: none;
+    }
+    .nav-itemcelular{
+        display: block;
     }
 }

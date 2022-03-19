@@ -1,7 +1,7 @@
 
     function openTutorial(evt, videoTutorial) {
         let i, tabcontent, tablinks
-        let srcVideo = ["TazECHSIpB4","uIzDaUkYAIs","6DgvtN2CYDs","0RS99IVwZTE","BY-Go8N9Jlw","q5_ZsBV8Hq8","BrqnYzri6UY"];//todos os ids do vídeos do youtube
+        //let srcVideo = ["TazECHSIpB4","uIzDaUkYAIs","6DgvtN2CYDs","0RS99IVwZTE","BY-Go8N9Jlw","q5_ZsBV8Hq8","BrqnYzri6UY"];//todos os ids do vídeos do youtube
         
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
