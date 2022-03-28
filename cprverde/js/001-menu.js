@@ -15,7 +15,7 @@ document.getElementById("navbar").innerHTML=
                     '</li>' +
                     '<li class="nav-item">' +
                 '</ul>' +
-                '<a href="#" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">Administração</button></a>' +
+                '<a href="https://jeffersongis.github.io/teste/portalcpr/index.html" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">Administração</button></a>' +
 
                 '<div class="hamburger">' +
                     '<span class="bar"></span>' +
