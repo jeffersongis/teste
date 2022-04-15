@@ -270,7 +270,7 @@ a {
 /*parallax*/
 .parallax{
     
-    background-image:url(home-banner_1920_700.png);/*imagem usada*/
+    background-image:url(banner.jpg);/*imagem usada*/
     background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     -webkit-background-attachment: fixed;/*a imagem não rola junto com a div/section*/
     background-size: cover;/*a imagem é ajustada ao tamanho da div/section*/
@@ -577,6 +577,10 @@ padding: 8px;
 
 .tabela tr:nth-child(odd) {
 background-color: #dddddd;
+}
+
+.tabProj{
+    width: 50%;
 }
 
 /*========>FIM DA TABELA INCORPORADA<===========*/

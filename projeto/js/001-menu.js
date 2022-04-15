@@ -13,9 +13,10 @@ document.getElementById("navbar").innerHTML=
                     '<li class="nav-item">' +
                         '<p id="link3" class="nav-link" onclick="getPos(\'comprovacao\')">Comprovações</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->' +
                     '</li>' +
-                    '<li class="nav-item">' +
+                    '<li class="nav-item">'+
+                        '<a href="https://jeffersongis.github.io/teste/portalcprativo2/index.html" class="nav-link">Portal</a>'+
+                    '</li>'+
                 '</ul>' +
-                '<a href="https://jeffersongis.github.io/teste/portalcpr/index.html" target="_blank" class="botao_entrar"><button class="botao_primario botao_resp">Administração</button></a>' +
 
                 '<div class="hamburger">' +
                     '<span class="bar"></span>' +
