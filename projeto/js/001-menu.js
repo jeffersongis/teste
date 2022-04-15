@@ -8,7 +8,7 @@ document.getElementById("navbar").innerHTML=
                         '<p id="link1" class="nav-link" onclick="getPos(\'ativoambiental\')">Ativo Ambiental</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->'+
                     '</li>'+
                     '<li class="nav-item">'+
-                        '<p id="link2" class="nav-link" onclick="getPos(\'cprverde\')">CPR Verde</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->' +
+                        '<p id="link2" class="nav-link" onclick="getPos(\'cprverde\')">Projeto Ambiental</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->' +
                     '</li>' +
                     '<li class="nav-item">' +
                         '<p id="link3" class="nav-link" onclick="getPos(\'comprovacao\')">Comprovações</p><!--usei js para que a barra de navegação não cobrisse o titulo da seção-->' +
