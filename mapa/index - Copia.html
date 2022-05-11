@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebMapa 101t</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="resources/leaflet.ajax.js"></script>
+    <style>
+        #header{
+            height: 75px;
+            background-color: darkgoldenrod;
+        }
+        #mapdiv{
+            height: 650px;
+            background-color: salmon;
+        }
+        #side-panel{
+            height: 650px;
+            background-color: beige;
+        }
+        #footer{
+            height: 75px;
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+<body>
+    <div id="header" class="col-md-12">
+        <h1 class="text-center">Mexico City</h1>
+    </div>
+    <div id="side_panel" class="col-md-3">
+        <h1 class="text-center">Attractions</h1>
+        <button id="zoomToZocalo" class="form-control btn-primary">Zocalo</button>
+    </div>
+    <div id="mapdiv" class="col-md-9"></div>
+    <div id="footer" class="col-md-12">
+        <h4 id="map_coords" class="text-center">Latitude 19.4 Longitude -99.1 Zoom Level:11</h4>
+        <h4 class="text-center">&copy;2016 <a href="http://millermountain.com">Miller Mountain LLC</a></h4>
+    </div>
+
+    <script>
+        var mymap = L.map('mapdiv')
+        mymap.setView([19.4, -99.1], 11);
+
+        var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+        mymap.addLayer(backgroundLayer);
+
+    
+        //usando o evento .click, para o elemento com id=#zoomToZocalo, que é um botão
+        $("#zoomToZocalo").click(function () {
+            mymap.setView([19.43278, -99.13333], 17);
+        });
+
+
+        var geojsonLayer = new L.GeoJSON.AJAX('data/attractions.geojson', {poinToLayer: function (feature, latlng) {
+            var str ="<h4>"+feature.properties.name+"</h4><hr>";
+				str += "<a href='"+feature.properties.web+"' target='blank'>";
+				str += "<img src='img/"+feature.properties.image+"' width='200px'>";
+				str += "</a>";
+				return L.marker(latlng).bindPopup(str);
+			}});
+			geojsonLayer.addTo(mymap);
+
+
+        //usando o evento on, que chama o evento seguinte, nesse caso, mousemove (movimento do mouse)
+            mymap.on('mousemove',function (e) {//o evento se dará na variavel mymap, que armazena o mapa (L.map, função do leaflet), cujo id=#mapdiv
+            var str = "Latitude: "+e.latlng.lat.toFixed(5)+" Longitude: "+e.latlng.lng.toFixed(5)+//a variavel str armazena as strings e os valores do paramentro (e), com a função nativa do Leaflet latlng (latitude e longitude)
+            " Zoom Level: "+mymap.getZoom();//a variavel armazena ainda o atual nível de zoom do mapa
+            $("#map_coords").html(str);//a função altera então o html, do elemento h4, cuji id="map_coords, que está inserido na div cujo id=footer"
+        });
+
+
+    </script>
+</body>
+</html>

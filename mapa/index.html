@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- This is my code for the web page in lecture 57 "First Map - Adding geoJSON data" 
+     https://www.udemy.com/introduction-to-web-programming-for-gis-applications/learn/lecture/6518040#overview -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WebMapa 101t</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet@1.0/dist/leaflet.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="resources/leaflet.ajax.js"></script>
+        <!-- <script src="resources/turf.min.js"></script> -->
+        <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+        <style>
+            #header{
+                height: 75px;
+                background-color: darkgoldenrod;
+            }
+            #mapdiv{
+                height: 650px;
+                background-color: salmon;
+            }
+            #side-panel{
+                height: 650px;
+                background-color: beige;
+            }
+            #footer{
+                height: 75px;
+                background-color: darkgrey;
+            }
+            .attraction {
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+ 	<body>
+
+    	<div id="header" class="col-md-12">
+        	<h1 class="text-center">Mexico City</h1>
+    	</div>
+    	<div id="side_panel" class="col-md-3">
+        	<h1 class="text-center">Attractions</h1>
+        	<button id="btnBuffer" class="form-control btn-warning attraction">Buffer</button>
+    	</div>
+    	<div id="mapdiv" class="col-md-9"></div>
+    	<div id="footer" class="col-md-12">
+        	<h4 id="map_coords" class="text-center">Latitute: 19.4 Longitude: -99.1 Zoom Level: 11</h4>
+        	<h4 class="text-center">&copy;2016 <a href="http://millermountain.com">Miller Mountain LLC</a></h4>
+    	</div>
+
+    	<script>
+			var mymap = L.map('mapdiv');
+			mymap.setView([19.4, -99.1], 11);
+
+			var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+			mymap.addLayer(backgroundLayer);
+
+			//$("#zoomToZocalo").click(function(){
+			//	mymap.setView([19.43278, -99.133333], 17);
+			//});
+				
+            //criando um botão para cada feature e colocando os botões na barra lateral
+			var geojsonLayer = new L.GeoJSON.AJAX('data/attractions.geojson', {pointToLayer: function(feature, latlng) {
+				var str = "<button id='zoomTo"+feature.properties.name.replace(/ /g, '');//botão + zoom para + propriedade nome do Jason, mas tirando todos os espaços (g/ /, '') pois não pode ter espaço nos ids dos botões e alguns nomes tem, exemplos: #zoomToZocalo, #zoomToMuseumofAnthropology
+                str += "'class='form-control btn btn-primary attraction'>";//classes css
+                str += feature.properties.name+"</buton>";//fechou a tag button para cada feature
+                $("#side_panel").append(str);//adiciona cada botão de cada feature no painel lateral
+
+            $("#zoomTo"+feature.properties.name.replace(/ /g, '')).click(function () {//ao clicar no botão, pego os botões com a propriedade name sem espaços
+                mymap.setView([latlng.lat, latlng.lng], 17);//insere a coordenada
+            });
+                
+                //chamando um arquivo json, e usando seus atributos para criar um bindPopup customizado com titulo, imagem e lonk na imagem                
+            var str ="<h4>"+feature.properties.name+"</h4><hr>";//titulo e espaço usando a propriedade nome
+				str += "<a href='"+feature.properties.web+"' target='blank'>";//abrindo a tag <a> para referenciar o endereço de interne da propriedade web
+				str += "<img src='img/"+feature.properties.image+"' width='200px'>";//usando a imagem <a>imagem</a> como link. O valor da propriedade imagem corresponde ao nome do arquivo na pasta img
+				str += "</a>";//fecha o link
+				return L.marker(latlng).bindPopup(str);//retorna um marcador padrão e no seu bindPoup vem o codigo html armazenado na variavel str de cada feature.
+			}});
+			geojsonLayer.addTo(mymap);
+
+            var bufferLayer;
+            $("#btnBuffer").click(function () {
+                if ($("#btnBuffer").html()=='Buffer') {//verifica se o valor do botão é 'Buffer', isso acontece depois que você aperta ele para tirar o buffer exibido
+                    var bufferedAttractions = turf.buffer(geojsonLayer.toGeoJSON(), 1, {units:'miles'});//usei o metodo buffer do turf.js na feature armazenada na variavel geojsonLayer, transforemi o blob resultante em jason (toGeoJASON), 1 milha de raio do buffer
+                    bufferLayer = L.geoJSON(bufferedAttractions).addTo(mymap);//adiciono o buffer no mapa
+                    $("#btnBuffer").html("Remove Buffer");//insiro no botão o valor Remove Buffer
+                }else{
+                    mymap.removeLayer(bufferLayer);//remove o buffer
+                    $("#btnBuffer").html("Buffer");//insere no botão a label Bufer, indicando que pode-se calcular a buffer novamente
+                }
+            }) 
+
+			
+			mymap.on('mousemove', function(e){
+				var str = "Latitute: "+e.latlng.lat.toFixed(5)+" Longitude: "
+				+e.latlng.lng.toFixed(5)+" Zoom Level: "+mymap.getZoom();
+				$("#map_coords").html(str);
+			});
+		</script>
+ 	</body>
+</html>
