@@ -31,7 +31,21 @@
             }
             .attraction {
                 margin-bottom: 5px;
+                text-align: center;              
             }
+
+            .link_neutro{
+                text-decoration: none;
+            }
+
+            .link_neutro:hover{
+                text-decoration: none;
+            }
+
+            .link_neutro:active{
+                text-decoration: none;
+            }
+
             .tituloPainel{
                 text-align: center;
             }
@@ -53,14 +67,14 @@
             <button id="btnImovel" class="form-control btn-primary attraction">Ocultar Imóvel</button>
             <h4 class="tituloPainel">Informações complementares</h4>
             <button id="btnBuffer" class="form-control btn btn-success attraction">Calcular App Nascente</button>
-            <button id="btnInventario" class="form-control btn btn-success attraction">Acessar Inventário Preliminar</button>
+            <a href="documents/Inventario Preliminar - fazenda jauru.pdf"  target="_blank" class="form-control btn btn-success attraction link_neutro">Acessar Inventário Preliminar</a>
             <h4 class="tituloPainel">Bases de Referência</h4>
             <button id="btnOSM" class="form-control btn-info attraction">OpenStreetMap</button>
             <button id="btnESRI" class="form-control btn-info attraction">ESRI Maps</button>
             <button id="btnGoogle" class="form-control btn-info attraction">Google Maps</button>
             <h4 class="tituloPainel">Rotas</h4>
-            <button id="btnRotaGoogle" class="form-control btn-warning attraction">Rota Google Maps</button>
-            <button id="btnRotaOSM" class="form-control btn-warning attraction">Rota OpenStreetMap</button>
+            <a href="https://www.google.com.br/maps/dir/Reserva+do+Caba%C3%A7al,+MT,+78265-000/-14.9121462,-58.5209761/@-15.0076554,-58.4967232,30046m/data=!3m1!1e3!4m9!4m8!1m5!1m1!1s0x939763862149d50f:0x61f2e7e6cdb352a4!2m2!1d-58.3851341!2d-15.120186!1m0!3e0"  target="_blank" class="form-control btn-warning attraction link_neutro">Google Mapas</a>
+            <a href="https://www.openstreetmap.org/directions?engine=graphhopper_car&route=-15.1211%2C-58.3836%3B-14.8798%2C-58.4950#map=12/-15.0038/-58.3985"  target="_blank" class="form-control btn-warning attraction link_neutro">Rota OpenStreetMap</a>
 
     	</div>
 
@@ -92,6 +106,25 @@
             var nascente = new L.GeoJSON.AJAX('data/nascente.geojson',{//busca o arquivo json
                 pointToLayer: function (feature, latlng) {//inicia a função ponto para layer, para poder mudar o simbolo padrão de ponto do Leaflet
                     return L.circleMarker(latlng, nascenteSimbologia);//retorna a layer no local exato e com a simbologia setada na variavel correspondente
+                }
+            }).addTo(mymap);//adiciona no mapa
+
+
+            var sedeIcon = L.icon({
+                iconUrl: 'icon/sede.png',
+                //shadowUrl: 'icon/nascente_sombra.png',
+
+                iconSize:     [30, 30], // size of the icon
+                //shadowSize:   [50, 50], // size of the shadow
+                iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+                //shadowAnchor: [4, 62],  // the same for the shadow
+                //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
+
+            var sede = new L.GeoJSON.AJAX('data/sede.geojson', {//busca o arquivo json
+                pointToLayer: function (feature, latlng) {//inicia a função ponto para layer, para poder mudar o simbolo padrão de ponto do Leaflet
+                    var texto ="sede";//conteúdo da feição
+                    return L.marker(latlng,{icon: sedeIcon}).bindPopup(texto);//retorna a layer no local exato e com o icone previamente configurado
                 }
             }).addTo(mymap);//adiciona no mapa
 
@@ -183,12 +216,14 @@
                     mymap.removeLayer(rio);
                     mymap.removeLayer(nascente);
                     mymap.removeLayer(espelho_agua);
+                    mymap.removeLayer(sede);
                     $("#btnImovel").html("Adicionar Imóvel");
                 }else{
                     limite.addTo(mymap);
                     nascente.addTo(mymap);
                     espelho_agua.addTo(mymap);
                     rio.addTo(mymap);
+                    sede.addTo(mymap);
                     $("#btnImovel").html("Ocultar Imóvel");
                 }
             })
