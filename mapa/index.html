@@ -15,83 +15,198 @@
         <style>
             #header{
                 height: 75px;
-                background-color: darkgoldenrod;
+                background-color: rgb(131, 255, 234);
             }
             #mapdiv{
-                height: 650px;
-                background-color: salmon;
+                height: 815px;
+                background-color: rgb(255, 255, 255);
             }
             #side-panel{
-                height: 650px;
+                height: 815px;
                 background-color: beige;
             }
             #footer{
-                height: 75px;
-                background-color: darkgrey;
+                height: 80px;
+                background-color: rgb(228, 228, 228);
             }
             .attraction {
                 margin-bottom: 5px;
             }
+            .tituloPainel{
+                text-align: center;
+            }
         </style>
     </head>
  	<body>
+         <!--Título do mapa-->
 
     	<div id="header" class="col-md-12">
-        	<h1 class="text-center">Mexico City</h1>
+        	<h1 class="text-center">Fazenda Jauru</h1>
     	</div>
+
+        <!--lateral-->
     	<div id="side_panel" class="col-md-3">
-        	<h1 class="text-center">Attractions</h1>
-        	<button id="btnBuffer" class="form-control btn-warning attraction">Buffer</button>
+        	<h1 class="text-center">Potencial Ambiental</h1>
+        	
+            <button id="btnVazao" class="form-control btn-primary attraction">Ocultar Vazão</button>
+            <button id="btnEstoque" class="form-control btn-primary attraction">Ocultar Estoque de carbono</button>
+            <button id="btnImovel" class="form-control btn-primary attraction">Ocultar Imóvel</button>
+            <h4 class="tituloPainel">Informações complementares</h4>
+            <button id="btnBuffer" class="form-control btn btn-success attraction">Calcular App Nascente</button>
+            <button id="btnInventario" class="form-control btn btn-success attraction">Acessar Inventário Preliminar</button>
+            <h4 class="tituloPainel">Bases de Referência</h4>
+            <button id="btnOSM" class="form-control btn-info attraction">OpenStreetMap</button>
+            <button id="btnESRI" class="form-control btn-info attraction">ESRI Maps</button>
+            <button id="btnGoogle" class="form-control btn-info attraction">Google Maps</button>
+            <h4 class="tituloPainel">Rotas</h4>
+            <button id="btnRotaGoogle" class="form-control btn-warning attraction">Rota Google Maps</button>
+            <button id="btnRotaOSM" class="form-control btn-warning attraction">Rota OpenStreetMap</button>
+
     	</div>
+
+        <!--mapa-->
     	<div id="mapdiv" class="col-md-9"></div>
+
+        <!--rodapé-->
     	<div id="footer" class="col-md-12">
         	<h4 id="map_coords" class="text-center">Latitute: 19.4 Longitude: -99.1 Zoom Level: 11</h4>
-        	<h4 class="text-center">&copy;2016 <a href="http://millermountain.com">Miller Mountain LLC</a></h4>
+        	<h4 class="text-center">&copy;2022 <a href="http://www.inovasig.com.br">INOVASIG</a></h4>
     	</div>
 
     	<script>
-			var mymap = L.map('mapdiv');
-			mymap.setView([19.4, -99.1], 11);
 
-			var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+            //Configuração do mapa
+			var mymap = L.map('mapdiv');
+			mymap.setView([-14.92953, -58.65043], 12);
+
+			var backgroundLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
 			mymap.addLayer(backgroundLayer);
 
-			//$("#zoomToZocalo").click(function(){
-			//	mymap.setView([19.43278, -99.133333], 17);
-			//});
-				
-            //criando um botão para cada feature e colocando os botões na barra lateral
-			var geojsonLayer = new L.GeoJSON.AJAX('data/attractions.geojson', {pointToLayer: function(feature, latlng) {
-				var str = "<button id='zoomTo"+feature.properties.name.replace(/ /g, '');//botão + zoom para + propriedade nome do Jason, mas tirando todos os espaços (g/ /, '') pois não pode ter espaço nos ids dos botões e alguns nomes tem, exemplos: #zoomToZocalo, #zoomToMuseumofAnthropology
-                str += "'class='form-control btn btn-primary attraction'>";//classes css
-                str += feature.properties.name+"</buton>";//fechou a tag button para cada feature
-                $("#side_panel").append(str);//adiciona cada botão de cada feature no painel lateral
+             //feições do imóvel
+                    
+             var limite = new L.GeoJSON.AJAX('data/limite.geojson',
+            {fillColor: "red", fillOpacity: 0.0, color: "red", opacity: 1, weight: 3}).addTo(mymap);//adiciona limite já com sua simbologia
+            
+            var nascenteSimbologia ={radius: 6, fillColor: "cyan", color: "#000", weight: 1, opacity: 1, fillOpacity: 0.8};//configuração da simbologia da nascente
+            
+            var nascente = new L.GeoJSON.AJAX('data/nascente.geojson',{//busca o arquivo json
+                pointToLayer: function (feature, latlng) {//inicia a função ponto para layer, para poder mudar o simbolo padrão de ponto do Leaflet
+                    return L.circleMarker(latlng, nascenteSimbologia);//retorna a layer no local exato e com a simbologia setada na variavel correspondente
+                }
+            }).addTo(mymap);//adiciona no mapa
 
-            $("#zoomTo"+feature.properties.name.replace(/ /g, '')).click(function () {//ao clicar no botão, pego os botões com a propriedade name sem espaços
-                mymap.setView([latlng.lat, latlng.lng], 17);//insere a coordenada
+            var espelho_agua = new L.GeoJSON.AJAX('data/espelho_agua.geojson').addTo(mymap);
+            var rio = new L.GeoJSON.AJAX('data/rio.geojson').addTo(mymap);
+            
+            
+            
+            //Vazao
+            var nascenteIcon = L.icon({
+                iconUrl: 'icon/nascente.png',
+                //shadowUrl: 'icon/nascente_sombra.png',
+
+                iconSize:     [50, 50], // size of the icon
+                //shadowSize:   [50, 50], // size of the shadow
+                iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location
+                //shadowAnchor: [4, 62],  // the same for the shadow
+                //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
             });
-                
-                //chamando um arquivo json, e usando seus atributos para criar um bindPopup customizado com titulo, imagem e lonk na imagem                
-            var str ="<h4>"+feature.properties.name+"</h4><hr>";//titulo e espaço usando a propriedade nome
-				str += "<a href='"+feature.properties.web+"' target='blank'>";//abrindo a tag <a> para referenciar o endereço de interne da propriedade web
-				str += "<img src='img/"+feature.properties.image+"' width='200px'>";//usando a imagem <a>imagem</a> como link. O valor da propriedade imagem corresponde ao nome do arquivo na pasta img
-				str += "</a>";//fecha o link
-				return L.marker(latlng).bindPopup(str);//retorna um marcador padrão e no seu bindPoup vem o codigo html armazenado na variavel str de cada feature.
-			}});
-			geojsonLayer.addTo(mymap);
+                                
+            var vazao = new L.GeoJSON.AJAX('data/vazao.geojson', {//busca o arquivo json
+                pointToLayer: function (feature, latlng) {//inicia a função ponto para layer, para poder mudar o simbolo padrão de ponto do Leaflet
+                    var str ="<h4> vazão: "+feature.properties.vazao_m3s+" m³/s<h4>";//conteúdo da feição
+                    return L.marker(latlng,{icon: nascenteIcon}).bindPopup(str);//retorna a layer no local exato e com o icone previamente configurado
+                }
+            }).addTo(mymap);//adiciona no mapa
+
+            
+            //Estoque de carbono
+                    
+            var estoque = new L.GeoJSON.AJAX('data/estoque_de_carbono.geojson',{
+                style: function(feature) {
+                    switch (feature.properties.sigla) {
+                        case 'SP': return {color: "#F5F5DC",weight: 1};
+                        case 'SA': return {color: "#7FFFD4",weight: 1};
+                    }
+                },
+                onEachFeature: function(feature, layer) {
+                    conteudo = "<h4 style=color:blue text-align:center> "+feature.properties.descricao+"<h4><hr>"+
+                               "tC/ha: "+feature.properties.co2porha+"<br>"+
+                               "Área(ha): "+feature.properties.area_ha+"<br>"+
+                               "Total tC estocado: "+feature.properties.totalc02+"<hr>"+
+                               "<b> CO2 Evitado: "+(feature.properties.totalc02*3.67).toFixed(2)+"</b><hr>"+
+                               "<img src='img/"+feature.properties.sigla+".jpg' width='300px'>";
+                    layer.bindPopup(conteudo);
+                }
+            }).addTo(mymap);        
+			
+            
+           //APP de Nascente
 
             var bufferLayer;
             $("#btnBuffer").click(function () {
-                if ($("#btnBuffer").html()=='Buffer') {//verifica se o valor do botão é 'Buffer', isso acontece depois que você aperta ele para tirar o buffer exibido
-                    var bufferedAttractions = turf.buffer(geojsonLayer.toGeoJSON(), 1, {units:'miles'});//usei o metodo buffer do turf.js na feature armazenada na variavel geojsonLayer, transforemi o blob resultante em jason (toGeoJASON), 1 milha de raio do buffer
-                    bufferLayer = L.geoJSON(bufferedAttractions).addTo(mymap);//adiciono o buffer no mapa
-                    $("#btnBuffer").html("Remove Buffer");//insiro no botão o valor Remove Buffer
+                if ($("#btnBuffer").html()=='Calcular App Nascente') {//verifica se o valor do botão é 'Buffer', isso acontece depois que você aperta ele para tirar o buffer exibido
+                    var appNascente = turf.buffer(nascente.toGeoJSON(), 50, {units:'meters'});//usei o metodo buffer do turf.js na feature armazenada na variavel geojsonLayer, transforemi o blob resultante em jason (toGeoJASON), 1 milha de raio do buffer
+                    bufferLayer = L.geoJSON(appNascente).addTo(mymap);//adiciono o buffer no mapa
+                    $("#btnBuffer").html("Remove APP de Nascente");//insiro no botão o valor Remove Buffer
                 }else{
                     mymap.removeLayer(bufferLayer);//remove o buffer
-                    $("#btnBuffer").html("Buffer");//insere no botão a label Bufer, indicando que pode-se calcular a buffer novamente
+                    $("#btnBuffer").html("Calcular App Nascente");//insere no botão a label Bufer, indicando que pode-se calcular a buffer novamente
+                }
+            })
+
+            $("#btnVazao").click(function () {
+                if ($("#btnVazao").html()=='Ocultar Vazão') {
+                    mymap.removeLayer(vazao);
+                    $("#btnVazao").html("Adicionar Vazão");
+                }else{
+                    vazao.addTo(mymap);
+                    $("#btnVazao").html("Ocultar Vazão");
+                }
+            })
+
+
+            $("#btnEstoque").click(function () {
+                if ($("#btnEstoque").html()=='Ocultar Estoque de carbono') {
+                    mymap.removeLayer(estoque);
+                    $("#btnEstoque").html("Adicionar Estoque de carbono");
+                }else{
+                    estoque.addTo(mymap);
+                    $("#btnEstoque").html("Ocultar Estoque de carbono");
                 }
             }) 
 
+
+            $("#btnImovel").click(function () {
+                if ($("#btnImovel").html()=='Ocultar Imóvel') {
+                    mymap.removeLayer(limite);
+                    mymap.removeLayer(rio);
+                    mymap.removeLayer(nascente);
+                    mymap.removeLayer(espelho_agua);
+                    $("#btnImovel").html("Adicionar Imóvel");
+                }else{
+                    limite.addTo(mymap);
+                    nascente.addTo(mymap);
+                    espelho_agua.addTo(mymap);
+                    rio.addTo(mymap);
+                    $("#btnImovel").html("Ocultar Imóvel");
+                }
+            })
+
+            $("#btnOSM").click(function () {
+                var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+			    mymap.addLayer(backgroundLayer);
+            })
+
+            $("#btnESRI").click(function () {
+                var backgroundLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
+			    mymap.addLayer(backgroundLayer);
+            })
+
+            $("#btnGoogle").click(function () {
+                var backgroundLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}');
+			    mymap.addLayer(backgroundLayer);
+            }) 
 			
 			mymap.on('mousemove', function(e){
 				var str = "Latitute: "+e.latlng.lat.toFixed(5)+" Longitude: "

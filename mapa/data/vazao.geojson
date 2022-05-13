@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "vazao",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "cod_vazao": "1", "vazao_m3s": 0.12, "limite_id": "1", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -54.969551253018153, -11.511720353787695 ] } },
+{ "type": "Feature", "properties": { "id": 2, "cod_vazao": "2", "vazao_m3s": 19.08, "limite_id": "1", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -54.976852655396122, -11.517871929019524 ] } },
+{ "type": "Feature", "properties": { "id": 3, "cod_vazao": "1", "vazao_m3s": 0.11, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.492892203542645, -14.936570051584898 ] } },
+{ "type": "Feature", "properties": { "id": 4, "cod_vazao": "2", "vazao_m3s": 0.26, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.524301195329009, -14.947433653664406 ] } },
+{ "type": "Feature", "properties": { "id": 5, "cod_vazao": "3", "vazao_m3s": 0.33, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.560528353728046, -14.945933658398197 ] } },
+{ "type": "Feature", "properties": { "id": 6, "cod_vazao": "4", "vazao_m3s": 1.93, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.662278032619184, -14.934535967095115 ] } },
+{ "type": "Feature", "properties": { "id": 7, "cod_vazao": "5", "vazao_m3s": 0.42, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.647641715173108, -14.915536027056465 ] } },
+{ "type": "Feature", "properties": { "id": 8, "cod_vazao": "6", "vazao_m3s": 0.6, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.799277600266215, -14.925899630713907 ] } },
+{ "type": "Feature", "properties": { "id": 9, "cod_vazao": "7", "vazao_m3s": 0.62, "limite_id": "2", "obs": null }, "geometry": { "type": "Point", "coordinates": [ -58.795913974517752, -14.947717743676945 ] } }
+]
+}
