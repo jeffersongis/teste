@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "sede",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "id": 2, "cod_sede": null, "nome": null, "limite_id": "2", "obs": "sede" }, "geometry": { "type": "Point", "coordinates": [ -58.800827997513565, -14.912041571986599 ] } }
-]
-}
