@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "name": "Zocalo", "image": "portada.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Z%C3%B3calo" }, "geometry": { "type": "Point", "coordinates": [ -99.133409190626764, 19.432698835750049 ] } },
+{ "type": "Feature", "properties": { "id": 2, "name": "Museum of Anthropology", "image": "anthropology.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/National_Museum_of_Anthropology_(Mexico)" }, "geometry": { "type": "Point", "coordinates": [ -99.186322350435987, 19.426167975275984 ] } },
+{ "type": "Feature", "properties": { "id": 3, "name": "Chapultepec Park", "image": "chapultepec.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Chapultepec" }, "geometry": { "type": "Point", "coordinates": [ -99.186538764177541, 19.419330699425345 ] } },
+{ "type": "Feature", "properties": { "id": 4, "name": "Coyoacan", "image": "coyoacan.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Coyoac%C3%A1n" }, "geometry": { "type": "Point", "coordinates": [ -99.16938652669846, 19.360599286308908 ] } },
+{ "type": "Feature", "properties": { "id": 5, "name": "Xochimilco", "image": "xochimilco.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Xochimilco" }, "geometry": { "type": "Point", "coordinates": [ -99.10105213434575, 19.288539898884309 ] } },
+{ "type": "Feature", "properties": { "id": 6, "name": "Palaciode Bella Arts", "image": "bellaarts.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Palacio_de_Bellas_Artes" }, "geometry": { "type": "Point", "coordinates": [ -99.141254115633359, 19.435377742284864 ] } },
+{ "type": "Feature", "properties": { "id": 7, "name": "Desierto de los leones", "image": "leones.jpg", "web": "https:\/\/en.wikipedia.org\/wiki\/Desierto_de_los_Leones_National_Park" }, "geometry": { "type": "Point", "coordinates": [ -99.311104535201409, 19.312817198661758 ] } }
+]
+}

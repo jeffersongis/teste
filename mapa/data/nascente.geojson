@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "nascente",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 21, "nascente_id": "1", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.792439815, -14.918148538 ] } },
+{ "type": "Feature", "properties": { "id": 22, "nascente_id": "2", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.780166335, -14.936778263 ] } },
+{ "type": "Feature", "properties": { "id": 23, "nascente_id": "3", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.777827059, -14.942881792 ] } },
+{ "type": "Feature", "properties": { "id": 24, "nascente_id": "4", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.657861395, -14.911231897 ] } },
+{ "type": "Feature", "properties": { "id": 25, "nascente_id": "5", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.582228274, -14.9454553 ] } },
+{ "type": "Feature", "properties": { "id": 26, "nascente_id": "6", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.57975655, -14.936149027 ] } },
+{ "type": "Feature", "properties": { "id": 27, "nascente_id": "7", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.5742312, -14.929825462 ] } },
+{ "type": "Feature", "properties": { "id": 28, "nascente_id": "8", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.515362256, -14.942500773 ] } },
+{ "type": "Feature", "properties": { "id": 29, "nascente_id": "9", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.503752833, -14.933870484 ] } },
+{ "type": "Feature", "properties": { "id": 30, "nascente_id": "10", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.503162747, -14.93132032 ] } },
+{ "type": "Feature", "properties": { "id": 31, "nascente_id": "11", "situacao": "Preservada", "coordx": null, "coordy": null, "obs": null, "limite_id": "2" }, "geometry": { "type": "Point", "coordinates": [ -58.708030967, -14.909951074 ] } }
+]
+}
