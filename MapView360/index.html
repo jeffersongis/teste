@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>MapView 360</title>
+<link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet"/>
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<link href="style.css" rel="stylesheet"/></head>
+<body>
+<div class="container">
+<div class="left">
+<div id="map"></div>
+<div id="controle-camada">
+<input accept="video/*" id="videoInput" type="file"/><br/>
+<input accept=".gpx" id="gpxInput" type="file"/><br/><br/>
+<button id="btnPonto">Novo Ponto</button>
+<button id="btnLinha">Nova Linha</button>
+<button id="btnPoligono">Novo Polígono</button><br/>
+<hr>
+<label for="yawSlider">Ajustar direção (°):</label><br/>
+<input id="yawSlider" max="180" min="-180" step="1" type="range" value="5"/>
+<span id="yawLabel">+5°</span><br/>
+<button id="btnConfirmarYaw">Confirmar calibração</button><br/>
+<hr>
+<button id="exportZIP">Exportar Tudo (ZIP)</button><br/><br/>
+<button id="baixarExemplo" style="background-color: #fd7e14; color: white;">📥 Baixar Vídeo de Exemplo</button>
+<p>Nível de Zoom: <span id="zoomAtual">-</span></p>
+</div>
+</div>
+<div class="resizer" id="dragbar"></div>
+<div class="right">
+<video-js class="video-js vjs-default-skin" controls="" crossorigin="anonymous" id="video360" preload="auto"></video-js>
+<div id="painel-flutuante">
+<label>Código:</label><input id="codigo" readonly=""/>
+<label>Tipo:</label>
+<select id="tipo">
+<option value="">(selecione)</option>
+<option value="buraco">buraco</option>
+<option value="entulho">entulho</option>
+<option value="terreno baldio">terreno baldio</option>
+<option value="construção abandonada">construção abandonada</option>
+<option value="caixa de água aberta">caixa de água aberta</option>
+<option value="piscina suja">piscina suja</option>
+<option value="árvore existente">árvore existente</option>
+</select>
+<label>Dado 1:</label><input id="dado1"/>
+<label>Dado 2:</label><input id="dado2"/>
+<label>Observação:</label><textarea id="observacao"></textarea>
+<label>Imagens:</label><textarea id="imagens"></textarea>
+<button onclick="capturarImagem()">Capturar Imagem</button>
+<button onclick="salvarAtributos()">Salvar</button>
+</div>
+
+</div> <!-- Fecha .right -->
+</div> <!-- Fecha .container -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-editable@1.2.0/src/Leaflet.Editable.js"></script>
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://unpkg.com/videojs-vr/dist/videojs-vr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script src="main.js"></script></body>
+</html>
