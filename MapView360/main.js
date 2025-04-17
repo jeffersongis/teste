@@ -274,27 +274,21 @@ window.capturarImagem = async function () {
   }, 'image/jpeg', 0.95);
 };
 
-
 document.getElementById('exportZIP').onclick = async () => {
   const zip = new JSZip();
 
-  // Exportar GeoJSONs
+  // Gerar os GeoJSONs separados
+  const geojsons = {};
   ['ponto', 'linha', 'poligono'].forEach(tipo => {
     const fc = {
       type: "FeatureCollection",
-      features: feicoes[tipo].map(f => {
-        const feature = JSON.parse(JSON.stringify(f.feature)); // clone seguro
-        const imagens = feature.properties.imagens || '';
-        const tipoImagem = feature.properties.tipo || 'outros';
-        const nomes = imagens.split(',').map(s => s.trim()).filter(n => n);
-        return feature;
-      })
+      features: feicoes[tipo].map(f => JSON.parse(JSON.stringify(f.feature)))
     };
+    geojsons[tipo] = fc;
     zip.file(`${tipo}.geojson`, JSON.stringify(fc, null, 2));
   });
-  
 
-  // Exportar imagens capturadas
+  // Exportar imagens
   const imagensFolder = zip.folder('imagens');
   for (const nome in __imagens) {
     const { blob, tipo } = __imagens[nome];
@@ -302,7 +296,79 @@ document.getElementById('exportZIP').onclick = async () => {
     pastaTipo.file(nome, blob);
   }
 
-  // Gerar e baixar o ZIP
+  // Gerar o visualizador com GeoJSON embutido
+const geojsonsList = [geojsons.ponto, geojsons.linha, geojsons.poligono].filter(g => g.features.length > 0);
+const visualizadorHTML = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizador MapView 360</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    #map { width: 100%; height: 100%; }
+    .carrossel-container { max-width: 90vw; overflow-x: auto; }
+    .carrossel { display: flex; gap: 12px; padding-top: 10px; padding-bottom: 6px; }
+    .carrossel img { max-height: 500px; width: auto; height: auto; border-radius: 12px; object-fit: contain; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-15.6, -56.1], 13);
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxNativeZoom: 19,
+      maxZoom: 22,
+      attribution: '&copy; OpenStreetMap contributors'
+    });
+    const google = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+      maxZoom: 22,
+      attribution: '&copy; Google Maps'
+    });
+    const positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 22,
+      attribution: '&copy; CartoDB'
+    }).addTo(map);
+    L.control.layers({ "OpenStreetMap": osm, "Google Maps": google, "CartoDB Positron": positron }).addTo(map);
+
+    const geojsonsList = ${JSON.stringify(geojsonsList)};
+
+    geojsonsList.forEach(data => {
+      L.geoJSON(data, {
+        onEachFeature: function (feature, layer) {
+          const p = feature.properties || {};
+          let html = \`<div style='font-size:14px; max-width:90vw'><b>Tipo:</b> \${p.tipo || 'tipo'}<br><b>Código:</b> \${p.codigo || ''}\`;
+          if (p.dado1) html += \`<br><b>Dado 1:</b> \${p.dado1}\`;
+          if (p.dado2) html += \`<br><b>Dado 2:</b> \${p.dado2}\`;
+          if (p.observacao) html += \`<br><b>Obs:</b> \${p.observacao}\`;
+          if (p.imagens) {
+            const imagens = p.imagens.split(',').map(s => s.trim());
+            html += \`<div class='carrossel-container'><div class='carrossel'>\`;
+            imagens.forEach(img => {
+              html += \`<img src='imagens/\${p.tipo}/\${img}' onerror='this.style.display="none"'/>\`;
+            });
+            html += \`</div></div>\`;
+          }
+          html += \`</div>\`;
+          layer.bindPopup(html, { maxWidth: 1000 });
+        }
+      }).addTo(map);
+    });
+    const allFeatures = L.featureGroup([
+      ...Object.values(map._layers).filter(l => l instanceof L.Path || l instanceof L.Marker)
+    ]);
+    map.fitBounds(allFeatures.getBounds());
+  </script>
+</body>
+</html>`;
+
+
+  // Adicionar visualizador ao ZIP
+  zip.file("visualizador.html", visualizadorHTML);
+
+  // Finalizar
   try {
     const content = await zip.generateAsync({ type: "blob" });
     saveAs(content, "mapview360_export.zip");
@@ -312,6 +378,7 @@ document.getElementById('exportZIP').onclick = async () => {
     alert("❌ Erro ao exportar ZIP. Veja o console para detalhes.");
   }
 };
+
   
 // === RESIZE BAR ENTRE MAPA E VÍDEO ===
 const dragbar = document.getElementById("dragbar");

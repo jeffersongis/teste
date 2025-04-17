@@ -1,3 +1,4 @@
+
 # MapView 360 – Análise com Vídeo 360° e Trilha GPS
 
 Sistema web interativo para visualizar vídeos 360° sincronizados com trilhas GPX, permitindo desenhar feições no mapa, editar atributos e exportar dados geográficos com imagens para análise urbana e ambiental.
@@ -31,6 +32,18 @@ Sistema web interativo para visualizar vídeos 360° sincronizados com trilhas G
 Você pode testar o sistema com este pacote:
 
 - [📦 exemplos.zip](./exemplos/exemplos.zip)
+
+---
+
+## 🖼 Visualizador embutido no ZIP
+
+Ao clicar em **“Exportar Tudo (ZIP)”**, o sistema também gera automaticamente um arquivo `visualizador.html` contendo:
+
+- Os dados GeoJSON embutidos diretamente no HTML
+- Um mapa interativo com base OpenStreetMap, Google Maps e CartoDB
+- Popups com os atributos de cada feição e carrossel de imagens capturadas
+
+📁 Basta extrair o ZIP e clicar duas vezes no `visualizador.html` para visualizar seus dados sem necessidade de conexão ou carregamento externo.
 
 ---
 
